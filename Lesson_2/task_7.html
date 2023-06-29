@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 7</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 7</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Знайти суму випадкового номера місяця (від 1 до 12) та
+                випадкового номера дня (від 0 до 6).
+              </p>
+            </fieldset>
+            <script>
+              // Вводимо необхідні данні
+              const MIN_MONTH = 1
+              const MAX_MONTH = 12
+              const MIN_DAY = 0
+              const MAX_DAY = 6
+
+              // Знаходимо результат
+              let randomMonth =
+                MIN_MONTH +
+                Math.floor(Math.random() * (MAX_MONTH - MIN_MONTH + 1))
+              let randomDay =
+                MIN_DAY + Math.floor(Math.random() * (MAX_DAY - MIN_DAY + 1))
+              let sumRandomMonthRandomDay = randomMonth + randomDay
+
+              // Виводимо результат
+              document.write(`Номер випадкового місяця - ${randomMonth} <br>
+      Номер випадкового дня - ${randomDay} <br> 
+      Сума випадкового номера місяця та випадкового номера дня - ${sumRandomMonthRandomDay}`)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

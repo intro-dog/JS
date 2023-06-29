@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 8</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 8</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Створити функцію, яка виводить банер (у функцію передаються:
+                зображення, заголовок та посилання, куди переходимо при кліку на
+                зображення (тег img повине знаходитись у середині тега a
+              </p>
+            </fieldset>
+            <script>
+              function getBanner() {
+                document.write(`<section class="banner"><div><h1>Живи, а працюй у вільний час! ©</h1>
+                    </div>
+                    <div class="img__banner" style="display: flex; justify-content: center;">
+                    <a href="https://www.youtube.com/@FreelancerLifeStyle" target="_blank"><img src="../img_task_7/3.png" alt="img" width="200" height="200"></a></div>
+                    </section>`)
+              }
+              getBanner()
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

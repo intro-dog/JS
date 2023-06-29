@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 4</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 4</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано довжину у сантиметрах. Визначати скільки це метрів і
+                кілометрів.
+              </p>
+            </fieldset>
+            <script>
+              // Вводимо необхідні данні
+              let lengthInCentimeter = parseFloat(
+                prompt(
+                  "Введіть будь-ласка довжину у сантиметрах (Наприклад: 175.00)"
+                )
+              )
+
+              // Знаходимо результат
+              let lengthInMeters = lengthInCentimeter / 100
+              let lengthInKilometers = lengthInMeters / 1000
+
+              // Виводимо результат
+              document.write(
+                `${lengthInCentimeter.toFixed(2)} см = ${lengthInMeters.toFixed(
+                  2
+                )} м = ${lengthInKilometers.toFixed(5)} км`
+              )
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

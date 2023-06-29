@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 2</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано рік народження (дата: 1 січня) та поточний рік. Знайти
+                кількість років.
+              </p>
+            </fieldset>
+            <script>
+              // Вводимо необхідні данні
+              const CURRENT_YEAR = 2023
+              let yearBirth = parseInt(
+                prompt(
+                  "Введіть будь-ласка рік Вашого народження (Наприклад: 1996)"
+                )
+              )
+
+              // Знаходимо результат
+              let yearNumber = CURRENT_YEAR - yearBirth
+
+              // Виводимо результат
+              document.write(`Вам ${yearNumber} роки(ів)`)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

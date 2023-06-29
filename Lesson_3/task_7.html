@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 7</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 7</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                З клавіатури вводиться номер місяця. Вивести до якої пори він
+                відноситься
+              </p>
+            </fieldset>
+            <script>
+              // Вводимо необхідні данні
+              let getNumberOfMonth = parseInt(
+                prompt("Введіть будь-ласка номер місяця (від 1 до 12):")
+              )
+
+              // Знаходимо результат і виводимо
+              switch (getNumberOfMonth) {
+                case 1:
+                case 2:
+                case 12:
+                  document.write(`Зима за вікном`)
+                  break
+                case 3:
+                case 4:
+                case 5:
+                  document.write(`Весна за вікном`)
+                  break
+                case 6:
+                case 7:
+                case 8:
+                  document.write(`Літо за вікном`)
+                  break
+                case 9:
+                case 10:
+                case 11:
+                  document.write(`Осінь за вікном`)
+                  break
+                default:
+                  alert("Такого місяця не існує!")
+                  break
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

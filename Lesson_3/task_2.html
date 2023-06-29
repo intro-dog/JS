@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 2</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                З клавіатури вводиться ціна товару і кількість грошей. Якщо
+                грошей не вистачає то відмовляємо у покупці, інакше, якщо ще
+                залишаються гроші, то пропонуємо купити лотерею за 4 грн.
+              </p>
+            </fieldset>
+            <script>
+              // Вводимо необхідні данні
+              const LOTTERY_PRICE = 4
+              let productPrice = parseFloat(
+                prompt("Введіть будь-ласка ціну товару")
+              )
+              let moneyAmount = parseFloat(
+                prompt("Введіть будь-ласка кількість грошей")
+              )
+              // Знаходимо результат
+              let changeMoney = moneyAmount - productPrice
+              let restMoneyWithLottery = changeMoney - LOTTERY_PRICE
+
+              // Виводимо
+              if (moneyAmount < productPrice) {
+                document.write(`Вибачте, у Вас не вистачає коштів`)
+              } else if (changeMoney >= LOTTERY_PRICE) {
+                let lotteryOffer = confirm(
+                  "Ви маєте можливість купити лотерейний квиток за 4 грн"
+                )
+                if (lotteryOffer && restMoneyWithLottery === 0) {
+                  document.write(`Ваш білет. Успіху!`)
+                } else if (lotteryOffer) {
+                  document.write(
+                    `Вашi ${restMoneyWithLottery.toFixed(
+                      2
+                    )} грн і Ваш білет. Успіху!`
+                  )
+                } else {
+                  document.write(
+                    `Вашi(а) ${changeMoney.toFixed(2)} грн. Гарного дня!`
+                  )
+                }
+              } else {
+                document.write(
+                  `Вашi(а) ${changeMoney.toFixed(2)} грн. Гарного дня!`
+                )
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

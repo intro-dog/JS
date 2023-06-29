@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 5</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                З клавіатури вводиться назва категорії водія (A-мотоцикл,
+                B-легковий автомобіль, C-вантажний автомобіль). Вивести на екран
+                назву транспортного засобу, яким він може керувати.
+              </p>
+            </fieldset>
+            <script>
+              // Вводимо необхідні данні
+              let getCategory = prompt(
+                "Введіть будь-ласка категорію водія (A, B або C):"
+              )
+
+              // Знаходимо результат і виводимо
+              switch (getCategory) {
+                case "A":
+                case "a":
+                  document.write(
+                    `В категорію “А” зібрані мотоцикли та інші двоколісні транспортні засоби, які мають двигун з робочим об'ємом 50 куб. сантиметрів і більше або електродвигун потужністю 4 кВт і більше. Право на керування надається з 16 років.`
+                  )
+                  break
+                case "B":
+                case "b":
+                  document.write(
+                    `До категорії “B” відносяться автомобілі, максимальна вага яких не перевищує 3500 кг, а кількість місць для сидіння, крім сидіння водія, не перевищує восьми. Право на керування надається з 18 років.`
+                  )
+                  break
+                case "C":
+                case "c":
+                  document.write(
+                    `В категорію “С” входять призначені для перевезення вантажів автомобілі, дозволена максимальна маса яких перевищує 7500 кілограмів.`
+                  )
+                  break
+                default:
+                  alert("Введіть будь-ласка категорію водія (A, B або C)")
+                  break
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

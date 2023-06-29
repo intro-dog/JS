@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 6</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 6</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Створити функцію, яка створює таблицю з вказаною кількістю
+                рядків і стовпців (таблиця заповнюється заданим фіксованим
+                повідомленням).
+              </p>
+            </fieldset>
+            <script>
+              function createTable(rowNumbers, columnNumbers, textContent) {
+                document.write('<table border="2px">')
+                for (let i = 0; i < rowNumbers; i++) {
+                  document.write("<tr>")
+                  for (let j = 0; j < columnNumbers; j++) {
+                    document.write(`<td> ${textContent} </td>`)
+                  }
+                  document.write("</tr>")
+                }
+                document.write("</table>")
+              }
+              createTable(
+                parseInt(prompt("Введіть кількість рядків")),
+                parseInt(prompt("Введіть кількість колонок")),
+                prompt("Введіть повідомлення таблиці")
+              )
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 0</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 0</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Створити функцію, яка за номером місяця повертає пору року, до
+                якої відноситься цей місяць.
+              </p>
+            </fieldset>
+            <script>
+              getTimeOfYear(
+                Math.floor(prompt("Введіть будь-ласка номер місяця"))
+              )
+
+              function getTimeOfYear(numberOfMonth) {
+                switch (numberOfMonth) {
+                  case 1:
+                  case 2:
+                  case 12:
+                    document.write("Зима")
+                    break
+                  case 3:
+                  case 4:
+                  case 5:
+                    document.write("Весна")
+                    break
+                  case 6:
+                  case 7:
+                  case 8:
+                    document.write("Літо")
+                    break
+                  case 9:
+                  case 10:
+                  case 11:
+                    document.write("Осінь")
+                    break
+                  default:
+                    document.write("В році 12 місяців")
+                    break
+                }
+                return numberOfMontn
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

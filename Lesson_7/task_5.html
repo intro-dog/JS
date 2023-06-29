@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 5</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Створити окремі функції, які переводять: 1) Cантиметри у дюйми;
+                2) Кілограми у фунти; 3) Кілометри у милі.
+              </p>
+            </fieldset>
+            <script>
+              function getCentimetersToInches(centimeters) {
+                const oneInche = 0.393700787
+                let transformation = centimeters * oneInche
+                return document.write(
+                  `У ${centimeters} см, ${transformation.toFixed(2)} дюйми(ів)`
+                )
+              }
+              function getKilogramsToPounds(kilograms) {
+                const onePound = 0.45359237
+                let transformation = kilograms / onePound
+                return document.write(
+                  `У ${kilograms} кг, ${transformation.toFixed(2)} фунти(ів)`
+                )
+              }
+              function getKilometersToMiles(kilometers) {
+                const oneMile = 0.6214
+                let transformation = kilometers * oneMile
+                return document.write(
+                  `У ${kilometers} км, ${transformation.toFixed(2)} милі`
+                )
+              }
+              getCentimetersToInches(100)
+              document.write(`<br>`)
+              getKilogramsToPounds(100)
+              document.write(`<br>`)
+              document.write(getKilometersToMiles(100).toFixed(2))
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

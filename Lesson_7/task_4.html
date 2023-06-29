@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 4</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 4</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Створити функцію, яка для 3 заданих чисел знаходить одночасно
+                декілька результатів: кількість парних, кількість додатних,
+                кількість більших за 100.
+              </p>
+            </fieldset>
+            <script>
+              function getCountsOfEvenPositiveOverHundredsNumbers(
+                firstNumber,
+                secondNumber,
+                thirdNumber
+              ) {
+                let evenNumberCount = 0
+                let positiveNumberCount = 0
+                let overHundredCount = 0
+                if (firstNumber % 2 === 0) evenNumberCount++
+                if (secondNumber % 2 === 0) evenNumberCount++
+                if (thirdNumber % 2 === 0) evenNumberCount++
+
+                if (firstNumber >= 0) positiveNumberCount++
+                if (secondNumber >= 0) positiveNumberCount++
+                if (thirdNumber >= 0) positiveNumberCount++
+
+                if (firstNumber > 100) overHundredCount++
+                if (secondNumber > 100) overHundredCount++
+                if (thirdNumber > 100) overHundredCount++
+
+                return [evenNumberCount, positiveNumberCount, overHundredCount]
+              }
+
+              let functionCall = getCountsOfEvenPositiveOverHundredsNumbers(
+                parseInt(prompt("Введіть будь ласка число 1 число ")),
+                parseInt(prompt("Введіть будь ласка число 2 число ")),
+                parseInt(prompt("Введіть будь ласка число 3 число "))
+              )
+              document.write(`Кількість парних чисел - ${functionCall[0]}<br>`)
+              document.write(
+                `Кількість додатніх чисел - ${functionCall[1]}<br>`
+              )
+              document.write(
+                `Кількість чисел які більші за 100 - ${functionCall[2]}`
+              )
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

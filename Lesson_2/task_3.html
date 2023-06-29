@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 3</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано вартість одиниці товару і кількість. Знайти загальну
+                вартість та ПДВ (5% від загальної вартості).
+              </p>
+            </fieldset>
+            <script>
+              // Вводимо необхідні данні
+              const VAT = 0.05
+              let priceOneProduct = parseFloat(
+                prompt(
+                  "Введіть будь-ласка вартість одиниці товару (Наприклад: 1.50)"
+                )
+              )
+              let countProduct = parseInt(
+                prompt("Введіть будь-ласка кількість товару (Наприклад: 5)")
+              )
+
+              // Знаходимо результат
+              let totalPrice = priceOneProduct * countProduct
+              let valueWithTax = totalPrice * VAT
+
+              // Виводимо результат
+              document.write(`Загальна вартість: ${totalPrice.toFixed(2)} <br>`)
+              document.write(`ПДВ: ${valueWithTax.toFixed(2)} <br>`)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

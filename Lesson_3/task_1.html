@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                З клавіатури вводяться імена двох дітей та кількість у них
+                цукерок. Вивести не екран ім’я тієї дитини, у якої кількість
+                цукерок є більшою, або вивести, що кількість однакова.
+              </p>
+            </fieldset>
+            <script>
+              // Вводимо необхідні данні
+              let firstChildName = prompt(
+                "Введіть будь-ласка ім'я першої дитини:"
+              )
+              let firstChildSweets = parseInt(
+                prompt("Скільки цукерок у першої дитини?")
+              )
+
+              let secondChildName = prompt(
+                "Введіть будь-ласка ім'я другої дитини:"
+              )
+              let secondChildSweets = parseInt(
+                prompt("Скільки цукерок у другої дитини?")
+              )
+              // Знаходимо результат і виводимо
+              if (firstChildSweets > secondChildSweets)
+                document.write(`${firstChildName} має більше цукерок`)
+              else if (secondChildSweets > firstChildSweets)
+                document.write(`${secondChildName} має більше цукерок`)
+              else if (firstChildSweets === secondChildSweets)
+                document.write(`У дітей однакова кількість цукерок`)
+              else alert(`"Помилка!"`)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

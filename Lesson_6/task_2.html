@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 2</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Відобразити прямокутний трикутник за допомогою символів «о»
+              </p>
+            </fieldset>
+            <script>
+              // прямокутний трикутник
+              for (let i = 0; i < 8; i++) {
+                for (let j = 0; j < i; j++) {
+                  document.write("o")
+                }
+                document.write("<br>")
+              }
+              document.write(`</br>`)
+              //   рівнобедрений трикутник
+              for (let i = 0; i < 7; i++) {
+                for (let j = 6; j > i; j--) {
+                  document.write("&nbsp")
+                }
+                for (let k = 0; k < i + 1; k++) {
+                  document.write("o")
+                }
+                document.write("<br>")
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

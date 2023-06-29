@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 4</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 4</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                З клавіатури вводиться вік людини. Вивести на екран ким він є
+                (дитиною у садочку, школярем, студентом, працівником,
+                пенсіонером).
+              </p>
+            </fieldset>
+            <script>
+              // Вводимо необхідні данні
+              let currentPersonAge = parseInt(
+                prompt("Введіть будь-ласка вік людини")
+              )
+
+              // Знаходимо результат і виводимо
+              if (currentPersonAge >= 1 && currentPersonAge <= 2) {
+                document.write(`Людина являється немовлям`)
+              } else if (currentPersonAge >= 3 && currentPersonAge <= 5) {
+                document.write(`Людина являється "Дитиною у садочку"`)
+              } else if (currentPersonAge >= 6 && currentPersonAge <= 17) {
+                document.write(`Людина являється "Школярем"`)
+              } else if (currentPersonAge >= 18 && currentPersonAge <= 24) {
+                document.write(`Людина являється "Студентом"`)
+              } else if (currentPersonAge >= 25 && currentPersonAge <= 64) {
+                document.write(`Людина являється "Працівником"`)
+              } else if (currentPersonAge >= 65 && currentPersonAge <= 105) {
+                document.write(
+                  `Людина являється "Пенсіонером" і має право на відпочинок`
+                )
+              } else {
+                alert("Введіть будь-ласка коректний вік")
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

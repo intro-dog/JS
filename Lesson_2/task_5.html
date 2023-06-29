@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 5</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано кількість секунд, що пройшла від початку доби. Визначити
+                скільки це годин і хвилин.
+              </p>
+            </fieldset>
+            <script>
+              // Вводимо необхідні данні
+              let numberSeconds = parseInt(
+                prompt("Введіть будь-ласка кількість секунд")
+              )
+
+              // Знаходимо результат
+              let numbersHours = Math.floor(numberSeconds / 3600)
+              let numbersMinutes = Math.floor((numberSeconds % 3600) / 60)
+
+              // Виводимо результат
+              document.write(
+                `У ${numberSeconds} сек - ${numbersHours} год. ${numbersMinutes} хв`
+              )
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

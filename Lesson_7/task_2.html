@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 2</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Створити функцію, яка за номером місяця повертає пору року, до
+                якої відноситься цей місяць.
+              </p>
+            </fieldset>
+            <script>
+              getWeekDay(Math.floor(prompt("Введіть будь-ласка день тижня")))
+              function getWeekDay(dayNumber) {
+                switch (dayNumber) {
+                  case 1:
+                  case 2:
+                  case 3:
+                  case 4:
+                  case 5:
+                    document.write("Робочий день")
+                    break
+                  case 6:
+                  case 7:
+                    document.write("Сьогодні вихідний. Гарного відпочинку!")
+                    break
+                  default:
+                    document.write("В тижні 7 днів!")
+                    break
+                }
+                return dayNumber
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

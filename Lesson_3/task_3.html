@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 3</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Випадковим чином генерується число від 1 до 5. Спробуйте вгадати
+                число за 2 спроби.
+              </p>
+            </fieldset>
+            <script>
+              // Вводимо необхідні данні
+              const MIN_NUMBER = 1
+              const MAX_NUMBER = 5
+              let findRandomNumber =
+                MIN_NUMBER +
+                Math.floor(Math.random() * (MAX_NUMBER - MIN_NUMBER + 1))
+              let assumeNumber = parseInt(
+                prompt(
+                  "Спробуйте вгадати число за 2 спроби (число буде сгенеровано від 1 до 5)"
+                )
+              )
+
+              // Знаходимо результат і виводимо
+              if (assumeNumber === findRandomNumber) {
+                document.write(
+                  `Так, ${assumeNumber} було сгенеровано. Молодець!`
+                )
+              } else {
+                let assumeSecondNumber = parseInt(
+                  prompt("Нажаль Ви не вгадали, спробуйте ще раз ввести число")
+                )
+                if (assumeSecondNumber === findRandomNumber) {
+                  document.write(
+                    `"Так, ${assumeSecondNumber} було сгенеровано. Молодець!"`
+                  )
+                } else {
+                  document.write(
+                    `Нажаль ${assumeNumber} та ${assumeSecondNumber} не сгенероване число. ${findRandomNumber} - сгенероване число.`
+                  )
+                }
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Вивести з використанням циклів маркований список з випадковими
+                числами (1-100). Кількість випадкових чисел вводиться
+                користувачем.
+              </p>
+            </fieldset>
+            <script>
+              let enterCountOfNumber = parseInt(
+                prompt("Введіть кількість випадкових чисел (від 1 до 100)")
+              )
+              if (enterCountOfNumber >= 1 && enterCountOfNumber <= 100) {
+                document.write(`<ul style="padding-left: 25px">`)
+                // change var to let
+                for (let i = 1; i <= enterCountOfNumber; i++) {
+                  let randomNumber = Math.floor(Math.random() * 100) + 1
+                  document.write("<li >" + randomNumber + "</li>")
+                }
+                document.write("</ul>")
+              } else {
+                alert(
+                  "Введіть будь ласка кількість випадкових чисел від 1 до 100"
+                )
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

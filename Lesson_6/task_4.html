@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 4</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 4</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Інвестор вклав тис. грн на 20 років під 20% річних. Визначити за
+                допомогою циклів суму, яку він одержить (без оподаткування).
+              </p>
+            </fieldset>
+            <script>
+              let askAboutInvestment = parseFloat(
+                prompt("Введіть будь-ласка суму інвестиції: ")
+              )
+              const interestRate = 0.2
+              const years = 20
+
+              for (let i = 1; i <= years; i++) {
+                askAboutInvestment += askAboutInvestment * interestRate
+              }
+              document.write(
+                `Сума, яку інвестор одержить через ${years} років: ${askAboutInvestment.toFixed(
+                  2
+                )} грн`
+              )
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

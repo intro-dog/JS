@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 0</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 0</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Обчислити значення виразів: S1=a+12+b, S2=a+b2a, S3=3(a+b)c,
+                S4=sin⁡(a-b)
+              </p>
+            </fieldset>
+            <script>
+              // Вводимо необхідні данні
+              let a = parseFloat(
+                prompt('Введіть будь-ласка - а (де "а" дійсне число)')
+              )
+              let b = parseFloat(
+                prompt('Введіть будь-ласка - b (де "b" дійсне число)')
+              )
+              let c = parseFloat(
+                prompt('Введіть будь-ласка - c (де "c" дійсне число)')
+              )
+
+              // Знаходимо результат
+              let S1 = a + 12 + b
+              let S2 = Math.sqrt((a + b) / (2 * a))
+              let S3 = Math.cbrt((a + b) * c)
+              let S4 = Math.sin(a / -b)
+
+              // Виводимо результат
+              document.write(`S1 = ${S1} <br>`)
+              document.write(`S2 = ${S2.toFixed(2)} <br>`)
+              document.write(`S3 = ${S3.toFixed(2)} <br>`)
+              document.write(`S4 = ${S4.toFixed(2)} <br>`)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

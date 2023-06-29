@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 0</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 0</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Знайти суму, добуток та частку двох дійсних чисел. Результат
+                вивести у формі таблиці
+              </p>
+            </fieldset>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Операція</th>
+                  <th>Результат</th>
+                </tr>
+              </tbody>
+              <tbody>
+                <script>
+                  // Вводимо необхідні данні
+                  let firstNumber = parseFloat(
+                    prompt("Введіть будь-ласка перше дійсне число")
+                  )
+                  let secondNumber = parseFloat(
+                    prompt("Введіть будь-ласка друге число")
+                  )
+
+                  // Знаходимо результат
+                  let sumTwoNumber = firstNumber + secondNumber
+                  let productTwoNumber = firstNumber * secondNumber
+                  let fractionTwoNumber = firstNumber / secondNumber
+
+                  // Виводимо результат
+                  document.write("<tr>")
+                  document.write(
+                    `<td>Сума</td><td>${sumTwoNumber.toFixed(2)}</td>`
+                  )
+                  document.write("</tr>")
+
+                  document.write("<tr>")
+                  document.write(
+                    `<td>Добуток</td><td>${productTwoNumber.toFixed(2)}</td>`
+                  )
+                  document.write("</tr>")
+
+                  document.write("<tr>")
+                  document.write(
+                    `<td>Частка</td><td>${fractionTwoNumber.toFixed(2)}</td>`
+                  )
+                  document.write("</tr>")
+                </script>
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

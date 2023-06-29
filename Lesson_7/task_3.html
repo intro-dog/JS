@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 3</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Створити окремі функції, які для 4 чисел знаходять: 1) суму; 2)
+                добуток; 3) середнє арифметичне; 4) мінімальне значення.
+              </p>
+            </fieldset>
+            <script>
+              function getSum(
+                firstNumber,
+                secondNumber,
+                thirdNumber,
+                fourthNumber
+              ) {
+                let sum =
+                  firstNumber + secondNumber + thirdNumber + fourthNumber
+                return document.write(`Сума всіх чисел = ${sum}`)
+              }
+              function getProduct(
+                firstNumber,
+                secondNumber,
+                thirdNumber,
+                fourthNumber
+              ) {
+                let product =
+                  firstNumber * secondNumber * thirdNumber * fourthNumber
+                return document.write(`Добуток всіх чисел = ${product}`)
+              }
+              function getArithmeticMean(
+                firstNumber,
+                secondNumber,
+                thirdNumber,
+                fourthNumber
+              ) {
+                let arithmetic =
+                  (firstNumber + secondNumber + thirdNumber + fourthNumber) / 4
+                return document.write(
+                  `Середнє арифметичне всіх чисел = ${arithmetic.toFixed(2)}`
+                )
+              }
+              function getMinValue(
+                firstNumber,
+                secondNumber,
+                thirdNumber,
+                fourthNumber
+              ) {
+                let minValue = Math.min(
+                  firstNumber,
+                  secondNumber,
+                  thirdNumber,
+                  fourthNumber
+                )
+                return document.write(`Мінімальне значення = ${minValue}`)
+              }
+              getSum(1, 2, 3, 4)
+              document.write(`<br>`)
+              getProduct(1, 2, 3, 4)
+              document.write(`<br>`)
+              getArithmeticMean(1, 2, 3, 4)
+              document.write(`<br>`)
+              getMinValue(1, 2, 3, 4)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

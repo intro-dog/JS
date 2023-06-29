@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача -2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача -2</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Поступово генерувати 100 випадкових чисел від 1 до 1000.
+                Підрахувати яких чисел більше: парних чи непарних.
+              </p>
+            </fieldset>
+            <script>
+              let pairedNumbersCount = 0
+              let unpairedNumbersCount = 0
+
+              for (let i = 0; i < 100; i++) {
+                let randomNumber = Math.floor(Math.random() * 1000) + 1
+                if (randomNumber % 2 === 0) {
+                  pairedNumbersCount++
+                } else {
+                  unpairedNumbersCount++
+                }
+              }
+              if (pairedNumbersCount > unpairedNumbersCount) {
+                document.write(`Парних чисел більше </br>`)
+              } else if (pairedNumbersCount < unpairedNumbersCount) {
+                document.write(`Непарних чисел більше </br>`)
+              } else {
+                document.write(`Кількість парних та непарних чисел рівна </br>`)
+              }
+              document.write(
+                `Кількість парних чисел: ${pairedNumbersCount} </br>`
+              )
+              document.write(
+                `Кількість парних чисел: ${unpairedNumbersCount} </br>`
+              )
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

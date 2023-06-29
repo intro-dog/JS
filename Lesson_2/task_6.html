@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 6</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 6</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                З клавіатури вводяться вартість товару та кількість одиниць 3
+                товарів. Обчислити вартість кожного товару окремо та загальну
+                вартість. Вивести чек (як у супермаркеті) використовуючи
+                елементи розмітки.
+              </p>
+            </fieldset>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Найменування</th>
+                  <th>Ціна</th>
+                </tr>
+              </tbody>
+
+              <tbody>
+                <script>
+                  // Вводимо необхідні данні
+                  let firstCountProduct = parseFloat(
+                    prompt("Введіть будь-ласка кількість товару 1")
+                  )
+                  let firstProductPrice = parseFloat(
+                    prompt("Введіть будь-ласка ціну товару 1")
+                  )
+                  let secondCountProduct = parseFloat(
+                    prompt("Введіть будь-ласка кількість товару 2")
+                  )
+                  let secondProductPrice = parseFloat(
+                    prompt("Введіть будь-ласка ціну товару 2")
+                  )
+                  let thirdCountProduct = parseFloat(
+                    prompt("Введіть будь-ласка кількість товару 3")
+                  )
+                  let thirdProductPrice = parseFloat(
+                    prompt("Введіть будь-ласка ціну товару 3")
+                  )
+
+                  // Знаходимо результат
+                  let totalFirstProductPrice =
+                    firstCountProduct * firstProductPrice
+                  let totalSecondProductPrice =
+                    secondCountProduct * secondProductPrice
+                  let totalThirdProductPrice =
+                    thirdCountProduct * thirdProductPrice
+                  let totalAllProducts =
+                    totalFirstProductPrice +
+                    totalSecondProductPrice +
+                    totalThirdProductPrice
+
+                  // Виводимо результат
+                  document.write("<tr>")
+                  document.write(
+                    `<td>Вартість товару 1</td><td>${totalFirstProductPrice.toFixed(
+                      2
+                    )}</td>`
+                  )
+                  document.write("</tr>")
+                  document.write("<tr>")
+                  document.write(
+                    `<td>Вартість товару 2</td><td>${totalSecondProductPrice.toFixed(
+                      2
+                    )}</td>`
+                  )
+                  document.write("</tr>")
+                  document.write("<tr>")
+                  document.write(
+                    `<td>Вартість товару 3</td><td>${totalThirdProductPrice.toFixed(
+                      2
+                    )}</td>`
+                  )
+                  document.write("</tr>")
+                  document.write("<tr>")
+                  document.write(
+                    `<td>Загальна вартість всіх товарів</td><td>${totalAllProducts.toFixed(
+                      2
+                    )}</td>`
+                  )
+                  document.write("</tr>")
+                </script>
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>
