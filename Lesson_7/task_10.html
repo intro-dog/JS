@@ -39,15 +39,15 @@
                     additionalTemperatureValueCount++
                   }
                 }
-                let averageValue =
+                return (
                   sumAllAdditionalTemperature / additionalTemperatureValueCount
-                return document.write(
-                  `Cереднє значення для додатних показів температури = ${averageValue.toFixed(
-                    2
-                  )}`
                 )
               }
-              averageValueForAdditionalTemperature(5)
+              document.write(
+                `Cереднє значення для додатних показів температури = ${averageValueForAdditionalTemperature(
+                  5
+                ).toFixed(2)}`
+              )
             </script>
           </section>
         </div>

@@ -34,7 +34,7 @@
               ) {
                 let sum =
                   firstNumber + secondNumber + thirdNumber + fourthNumber
-                return document.write(`Сума всіх чисел = ${sum}`)
+                return sum
               }
               function getProduct(
                 firstNumber,
@@ -44,7 +44,7 @@
               ) {
                 let product =
                   firstNumber * secondNumber * thirdNumber * fourthNumber
-                return document.write(`Добуток всіх чисел = ${product}`)
+                return product
               }
               function getArithmeticMean(
                 firstNumber,
@@ -54,9 +54,7 @@
               ) {
                 let arithmetic =
                   (firstNumber + secondNumber + thirdNumber + fourthNumber) / 4
-                return document.write(
-                  `Середнє арифметичне всіх чисел = ${arithmetic.toFixed(2)}`
-                )
+                return arithmetic
               }
               function getMinValue(
                 firstNumber,
@@ -70,15 +68,21 @@
                   thirdNumber,
                   fourthNumber
                 )
-                return document.write(`Мінімальне значення = ${minValue}`)
+                return minValue
               }
-              getSum(1, 2, 3, 4)
-              document.write(`<br>`)
+              document.write(`Сума всіх чисел = ${getSum(1, 2, 3, 4)}<br>`)
               getProduct(1, 2, 3, 4)
-              document.write(`<br>`)
+              document.write(
+                `Добуток всіх чисел = ${getProduct(1, 2, 3, 4)}<br>`
+              )
               getArithmeticMean(1, 2, 3, 4)
-              document.write(`<br>`)
+              document.write(
+                `Середнє арифметичне = ${getArithmeticMean(1, 2, 3, 4)}<br>`
+              )
               getMinValue(1, 2, 3, 4)
+              document.write(
+                `Мінімальне значення = ${getMinValue(1, 2, 3, 4)}<br>`
+              )
             </script>
           </section>
         </div>

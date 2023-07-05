@@ -37,11 +37,13 @@
                     negativeTemperatureNumber++
                   }
                 }
-                return document.write(
-                  `Kількість від’ємних показів температури = ${negativeTemperatureNumber}`
-                )
+                return negativeTemperatureNumber
               }
-              getNegativeTemperatureCount(5)
+              document.write(
+                `Kількість від’ємних показів температури = ${getNegativeTemperatureCount(
+                  5
+                )}`
+              )
             </script>
           </section>
         </div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 3</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано масив імен учнів. З’ясувати скільки разів зустрічається
+                ім’я «Іван».
+              </p>
+            </fieldset>
+            <script>
+              function getWidthOfList() {
+                let getWidth = parseInt(prompt("Кількість імен у списку?"))
+                return getWidth
+              }
+
+              function getNamesList(width) {
+                let list = []
+                for (let i = 0; i < width; i++) {
+                  let enterName = prompt(`Введіть будь ласка ім'я ${i + 1}`)
+                  list.push(enterName)
+                }
+                return list
+              }
+
+              function getCountNames(array) {
+                let ivanCount = 0
+                for (const iterator of array) {
+                  if (iterator === "Ivan") ivanCount++
+                }
+                return ivanCount
+              }
+
+              function printResult(ivanCount) {
+                if (ivanCount === 0) {
+                  document.write("Sorry, Ivan is absent in the list")
+                } else {
+                  document.write(`Ivan appears ${ivanCount} times`)
+                }
+                return ivanCount
+              }
+
+              //==========================================================================================================
+              let createList = getNamesList(getWidthOfList())
+              document.write(`${createList}<br>`)
+
+              let ivanCount = document.write(getCountNames(createList))
+              printResult(ivanCount)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

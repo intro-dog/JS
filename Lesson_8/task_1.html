@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано масив, який містить оцінки з К предметів. Знайти середній
+                бал і з’ясувати до якої категорії він відноситься (відмінник,
+                двійочник (має хоча би одну двійку), хорошист (оцінки добре і
+                відмінно), трійочник (є хоча би одна трійка)).
+              </p>
+            </fieldset>
+            <script>
+              function getMinMark(array) {
+                let min = array[0]
+                for (let i = 1; i < array.length; i++) {
+                  if (array[i] < min) {
+                    min = array[i]
+                  }
+                }
+                return min
+              }
+
+              function getStudentSortCategory(marks) {
+                let category
+                switch (getMinMark(marks)) {
+                  case 1:
+                  case 2:
+                    category = "Двійочник"
+                    break
+                  case 3:
+                    category = "Трійочник"
+                    break
+                  case 4:
+                    category = "Хорошист"
+                    break
+                  case 4:
+                    category = "Відмінник"
+                    break
+                  default:
+                    throw new Error("Введіть будь ласка коректні дані")
+                }
+                return category
+              }
+
+              function getAverageMarks(arr) {
+                let sum = 0
+                for (let i = 0; i < arr.length; i++) {
+                  sum += arr[i]
+                }
+                return sum / arr.length
+              }
+
+              function createStudentMarks(element) {
+                let marks = []
+                for (let i = 0; i < element; i++) {
+                  let marksValue = parseInt(
+                    prompt(`Введіть будь ласка оцінку #${i + 1}`)
+                  )
+                  marks.push(marksValue)
+                }
+                return marks
+              }
+
+              let subjectsNumber = parseInt(
+                prompt("Введіть будь-ласка кількість предметів", "3")
+              )
+              let studentMarks = createStudentMarks(subjectsNumber)
+              let averageMarks = getAverageMarks(studentMarks)
+              let category = getStudentSortCategory(studentMarks)
+              document.write(
+                `Шановний ${category}, Ваш середній бал = ${averageMarks.toFixed(
+                  2
+                )}`
+              )
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>
