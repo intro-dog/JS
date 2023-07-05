@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 5</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано послідовність оцінок учня. Підрахувати кількість: 1) двійок
+                2) кількість хороших оцінок (добре, відмінно); 3) кількість
+                оцінок, які нижче середнього.
+              </p>
+            </fieldset>
+            <script>
+              // функція яка визначає довжину оцінок
+              function getMarkListWidth() {
+                let getWidth = parseInt(prompt("Кількість оцінок учня?", "3"))
+                return getWidth
+              }
+
+              // функція яка визначає список оцінок учня
+              function getMarkList(width) {
+                let markList = []
+
+                for (let i = 0; i < width; i++) {
+                  let enterMark = parseInt(
+                    prompt(`Введіть будь ласка оцінку ${i + 1}`)
+                  )
+                  markList.push(enterMark)
+                }
+
+                return markList
+              }
+
+              // функція яка підраховує кількість двійок у учня
+              function getQuantityDeuces(markList) {
+                let deucesMarkCount = 0
+
+                for (let i = 0; i < markList.length; i++) {
+                  if (markList[i] === 2) deucesMarkCount++
+                }
+
+                if (deucesMarkCount === 0) {
+                  return document.write("Дуже добре, двійки відсутні")
+                } else {
+                  return document.write(
+                    `Не дуже добре. Кількість двійок = ${deucesMarkCount}`
+                  )
+                }
+              }
+
+              // функція яка підраховує кількість трійок(нижче середнього) у учня
+              function getQuantityTriples(markList) {
+                let triplesMarkCount = 0
+
+                for (let i = 0; i < markList.length; i++) {
+                  if (markList[i] === 3) triplesMarkCount++
+                }
+
+                if (triplesMarkCount === 0) {
+                  return document.write("Успішний учень, трійки відсутні")
+                } else {
+                  return document.write(
+                    `Задовільно. Кількість трійок = ${triplesMarkCount}`
+                  )
+                }
+              }
+
+              // функція яка підраховує кількість хороших оцінок у учня
+              function getQuantityGoodMarks(markList) {
+                let goodMarkCount = 0
+
+                for (let i = 0; i < markList.length; i++) {
+                  if (markList[i] === 4 || markList[i] === 5) goodMarkCount++
+                }
+
+                if (goodMarkCount === 0) {
+                  return document.write(
+                    "Хороші оцінки відсутні. Змініть відношення до навчання"
+                  )
+                } else {
+                  return document.write(
+                    `Молодець. Кількість хороших оцінок = ${goodMarkCount}`
+                  )
+                }
+              }
+              //   ===================================================================
+
+              let createList = getMarkList(getMarkListWidth())
+              document.write(`Список оцінок: ${createList}<br>`)
+
+              getQuantityDeuces(createList)
+              document.write(`<br>`)
+              getQuantityTriples(createList)
+              document.write(`<br>`)
+              getQuantityGoodMarks(createList)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

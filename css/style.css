@@ -212,7 +212,7 @@ body {
 }
 
 #home__button>a {
-    font-size: 35px;
+    font-size: 14px;
     color: bisque;
     text-decoration: none;
 }
@@ -348,7 +348,7 @@ th {
     padding-top: 25px;
 }
 #home__button>a {
-    font-size: 35px;
+    font-size: 20px;
     color: bisque;
     text-decoration: none;
 }

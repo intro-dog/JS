@@ -33,36 +33,35 @@
 
               function getNamesList(width) {
                 let list = []
+
                 for (let i = 0; i < width; i++) {
                   let enterName = prompt(`Введіть будь ласка ім'я ${i + 1}`)
                   list.push(enterName)
                 }
+
                 return list
               }
 
               function getCountNames(array) {
                 let ivanCount = 0
-                for (const iterator of array) {
-                  if (iterator === "Ivan") ivanCount++
-                }
-                return ivanCount
-              }
 
-              function printResult(ivanCount) {
-                if (ivanCount === 0) {
-                  document.write("Sorry, Ivan is absent in the list")
-                } else {
-                  document.write(`Ivan appears ${ivanCount} times`)
+                for (const iterator of array) {
+                  if (iterator === "Іван") ivanCount++
                 }
-                return ivanCount
+
+                if (ivanCount == 0) {
+                  return document.write("Вибачте, Іван відсутній у списку")
+                } else {
+                  return document.write(
+                    `Іван з'являвся у списку ${ivanCount} разів`
+                  )
+                }
               }
 
               //==========================================================================================================
-              let createList = getNamesList(getWidthOfList())
-              document.write(`${createList}<br>`)
 
-              let ivanCount = document.write(getCountNames(createList))
-              printResult(ivanCount)
+              let createList = getNamesList(getWidthOfList())
+              getCountNames(createList)
             </script>
           </section>
         </div>

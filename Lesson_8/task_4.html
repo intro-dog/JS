@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 4</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 4</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано послідовність номерів автомобілів. Підрахувати кількість
+                номерів, які : • починаються на букву «А»; • перша і остання
+                літери співпадають; • складаються з більше ніш 5 символів;
+              </p>
+            </fieldset>
+            <script>
+              // функція яка визначає довжину номерів автомобілів
+              function getWidthOfList() {
+                let getWidth = parseInt(
+                  prompt("Кількість номерів автомобілів?", "3")
+                )
+                return getWidth
+              }
+              // функція яка визнаяає список номерів автомобіля
+              function getCarsNumberList(width) {
+                let carsNumberlist = []
+
+                for (let i = 0; i < width; i++) {
+                  let enterName = prompt(
+                    `Введіть будь ласка номер автомобіля ${i + 1}`,
+                    "АБ0000БА"
+                  )
+                  carsNumberlist.push(enterName)
+                }
+
+                return carsNumberlist
+              }
+
+              //   функція пошуку номеру знаку який починається на "А"
+              function getCarsNumberStartedWithA(carsNumberList) {
+                let numbersCountStartedWithA = 0
+                const letter = "А"
+
+                for (let i = 0; i < carsNumberList.length; i++) {
+                  if (carsNumberList[i][0] === letter)
+                    numbersCountStartedWithA++
+                }
+
+                if (numbersCountStartedWithA === 0) {
+                  return document.write(
+                    "Немає номерного знаку, який починається на А"
+                  )
+                } else {
+                  return document.write(
+                    `Кількість номерів, які починаються на А = ${numbersCountStartedWithA}<br>`
+                  )
+                }
+              }
+
+              //   функція пошуку знаку в якому 1 і остання літери співпадають
+              function getCarsNumberWhereFirstLastLettersTheSame(
+                carsNumberList
+              ) {
+                let numbersWhereFirstLastLettersTheSame = 0
+
+                for (let i = 0; i < carsNumberList.length; i++) {
+                  if (
+                    carsNumberList[i][0] ===
+                    carsNumberList[i][carsNumberList[i].length - 1]
+                  )
+                    numbersWhereFirstLastLettersTheSame++
+                }
+
+                if (numbersWhereFirstLastLettersTheSame === 0) {
+                  return document.write(
+                    "Немає номерного знаку, в якому перша і остання літери співпадають"
+                  )
+                } else {
+                  return document.write(
+                    `Кількість номерів, в якому перша і остання літери співпадають = ${numbersWhereFirstLastLettersTheSame}<br>`
+                  )
+                }
+              }
+
+              //   функція пошуку знаку який складається з більше ніш 5 символів
+              function getCarsNumbersMoreFiveCharacters(numberOfList) {
+                let carNumbersMoreFiveCharacters = 0
+
+                for (let i = 0; i < numberOfList.length; i++) {
+                  if ([numberOfList[i].length] > 5)
+                    carNumbersMoreFiveCharacters++
+                }
+
+                if (carNumbersMoreFiveCharacters === 0) {
+                  return document.write(
+                    "Немає номерного знаку, який складається з більше ніш 5 символів"
+                  )
+                } else {
+                  return document.write(
+                    `Кількість номерів, які складаються з більше ніш 5 символів = ${carNumbersMoreFiveCharacters}<br>`
+                  )
+                }
+              }
+              //   =================================================================================
+
+              let createList = getCarsNumberList(getWidthOfList())
+              document.write(`Список введених номерів: ${createList}<br>`)
+
+              getCarsNumberStartedWithA(createList)
+              getCarsNumberWhereFirstLastLettersTheSame(createList)
+              getCarsNumbersMoreFiveCharacters(createList)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

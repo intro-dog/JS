@@ -30,11 +30,13 @@
             <script>
               function getMinMark(array) {
                 let min = array[0]
+
                 for (let i = 1; i < array.length; i++) {
                   if (array[i] < min) {
                     min = array[i]
                   }
                 }
+
                 return min
               }
 
@@ -62,20 +64,24 @@
 
               function getAverageMarks(arr) {
                 let sum = 0
+
                 for (let i = 0; i < arr.length; i++) {
                   sum += arr[i]
                 }
+
                 return sum / arr.length
               }
 
               function createStudentMarks(element) {
                 let marks = []
+
                 for (let i = 0; i < element; i++) {
                   let marksValue = parseInt(
                     prompt(`Введіть будь ласка оцінку #${i + 1}`)
                   )
                   marks.push(marksValue)
                 }
+
                 return marks
               }
 
