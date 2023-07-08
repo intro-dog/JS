@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 3</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано масив елементів. Вивести на екран елементи, що більші за
+                100. (Тут використати цикл for..of )
+              </p>
+            </fieldset>
+            <script>
+              let countArrayElement = parseInt(
+                prompt("Введіть будь ласка кількість елементів масиву: ")
+              )
+              // отримуємо масив з рандомними числавми
+              function getRandomNumbersArray(elementsNumber) {
+                let randomArray = []
+
+                for (let i = 0; i < elementsNumber; i++) {
+                  let randomNumbers = Math.floor(Math.random() * 500 + 1)
+                  randomArray.push(randomNumbers)
+                }
+                return randomArray
+              }
+
+              //   отримаємо вивід масиву в якому всі числа більші за 100
+              function getElementsMoreThanHundred(randomArray) {
+                for (let element of randomArray) {
+                  if (element > 100) {
+                    document.write(`${element}` + " ")
+                  }
+                }
+              }
+
+              // ==============================================================================================================
+              let randomArray = getRandomNumbersArray(countArrayElement)
+              document.write(`Початковий масив: ${randomArray}<br>`)
+              getElementsMoreThanHundred(randomArray)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

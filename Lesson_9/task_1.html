@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Користувач вводить кількість елементів. Створити масив, що
+                складається з вказаної кількості елементів заповнених нулями.
+              </p>
+            </fieldset>
+            <script>
+              let countArrayElement = parseInt(
+                prompt("Введіть будь ласка кількість елементів масиву: ")
+              )
+
+              // отримаємо масив який заповнений 0
+              function getArray(elementsNumber) {
+                const pushZero = 0
+                let array = new Array(elementsNumber).fill(pushZero)
+
+                return array
+              }
+
+              // виводимо результат
+              function printArray(array) {
+                let printArray = document.write(array)
+
+                return printArray
+              }
+
+              // ==============================================================================================================
+              printArray(getArray(countArrayElement))
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

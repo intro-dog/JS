@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 5</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано масив імен. Сформувати масив з перших літер цих імен.
+              </p>
+            </fieldset>
+            <script>
+              // отримуємо кількість елементів у масиві
+              function getArrayElements() {
+                let countArrayElement = parseInt(
+                  prompt(
+                    "Введіть будь ласка кількість імен яку внести у список (Від 1 до 10): "
+                  )
+                )
+                if (countArrayElement > 10 || countArrayElement <= 0) {
+                  try {
+                    throw new Error()
+                  } catch (error) {
+                    alert("Помилка. Введіть будь ласка число від 1 до 10")
+                  }
+                  return getArrayElements()
+                }
+                return countArrayElement
+              }
+
+              // отримуємо масив з рандомними іменами
+              function getRandomNumbersArray(elementsNumber) {
+                let randomArray = [
+                  "Лілея",
+                  "Павло",
+                  "Богдан",
+                  "Кирило",
+                  "Юлія",
+                  "Данило",
+                  "Наталя",
+                  "Мстислав",
+                  "Мирослав",
+                  "Владислава",
+                ]
+                let newArray = []
+
+                for (let i = 0; i < elementsNumber; i++) {
+                  let findElement = Math.floor(
+                    Math.random() * randomArray.length
+                  )
+                  findElement = randomArray[findElement]
+                  newArray.push(findElement)
+                }
+                return newArray
+              }
+
+              //   отримуємо масив який починається з перших літер кожного імені
+              function getArrayStartedFromFirstLetter(newArray) {
+                let arrayStartedFromFirstLetters = []
+
+                newArray.forEach((element) => {
+                  arrayStartedFromFirstLetters.push(element[0])
+                })
+
+                return arrayStartedFromFirstLetters
+              }
+
+              //   друкуємо масив остаточний
+              function printArray(array) {
+                document.write(`Змінений масив: ${array},`)
+              }
+
+              // ==============================================================================================================
+              let randomArray = getRandomNumbersArray(getArrayElements())
+              document.write(`Сгенеровано масив: ${randomArray}<br>`)
+
+              printArray(getArrayStartedFromFirstLetter(randomArray))
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

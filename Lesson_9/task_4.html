@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 4</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 4</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано масив елементів. Усі елементи, які більші за перший елемент
+                помножити на 2
+              </p>
+            </fieldset>
+            <script>
+              let countArrayElement = parseInt(
+                prompt("Введіть будь ласка кількість елементів масиву: ")
+              )
+              // отримуємо масив з рандомними числами
+              function getRandomNumbersArray(elementsNumber) {
+                let randomArray = []
+
+                for (let i = 0; i < elementsNumber; i++) {
+                  let randomNumbers = Math.floor(Math.random() * 500 + 1)
+                  randomArray.push(randomNumbers)
+                }
+                return randomArray
+              }
+
+              // отримаємо масив з числами які більші за перше і помножені на 2
+              function getNumbersMoreThenPreviousProductTwo(randomArray) {
+                for (let i = 0; i < randomArray.length; i++) {
+                  if (randomArray[i] > randomArray[0]) randomArray[i] *= 2
+                }
+                return randomArray
+              }
+
+              // виводимо результат
+              function printArray(array) {
+                document.write(`Змінений масив: ${array},`)
+              }
+              // ==============================================================================================================
+              let randomArray = getRandomNumbersArray(countArrayElement)
+              document.write(`Сгенеровано масив: ${randomArray}<br>`)
+              printArray(getNumbersMoreThenPreviousProductTwo(randomArray))
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>
