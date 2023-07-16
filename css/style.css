@@ -138,7 +138,7 @@ body {
         font-size: 24px;
     }
     .button__text {
-        font-size: 18px;
+        font-size: 17px;
     }
     #return__button,
     #next__button {
@@ -363,7 +363,7 @@ th {
     transition: 0.4s ease;
 }
 #next__button>a:hover {
-    border-radius: 10px;
+    border-radius: 8px;
     background: bisque;
     border-color: black;
     color: black;
