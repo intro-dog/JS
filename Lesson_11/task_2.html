@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано інформацію про прибуток К магазинів протягом тижня.
+              </p>
+            </fieldset>
+            <script>
+              // функція генерування числа
+              let randomNumber = (minValue, maxValue) => {
+                return (
+                  minValue +
+                  Math.floor(Math.random() * (maxValue - minValue + 1))
+                )
+              }
+
+              //   функція генерування одного одновимірного масиву
+              let getRandomArray = (arrayLength, minValue, maxValue) => {
+                const array = []
+                for (let i = 0; i < arrayLength; i++) {
+                  array.push(randomNumber(minValue, maxValue))
+                }
+                return array
+              }
+
+              //   фунцкія генерування таблиці
+              let getRandomTable = (
+                rowsNumber,
+                columnNumber,
+                minValue,
+                maxValue
+              ) => {
+                const table = []
+                for (let i = 0; i < rowsNumber; i++) {
+                  table.push(getRandomArray(columnNumber, minValue, maxValue))
+                }
+                return table
+              }
+
+              // 1) знаходимо загальний прибуток кожного масиву за тиждень
+              let totalPriceEachArrayForWeek = (table) => {
+                let newArray = []
+                for (let i = 0; i < table.length; i++) {
+                  let sum = 0
+                  for (let j = 0; j < table[i].length; j++) {
+                    sum += table[i][j]
+                  }
+                  newArray.push(sum)
+                }
+                return newArray
+              }
+
+              // 3) знаходимо загальний прибуток за робочі дні
+              let totalPriceDuringWorkingDays = (table) => {
+                let sum = 0
+                for (let i = 0; i < table.length; i++) {
+                  for (let j = 0; j < 5; j++) {
+                    sum += table[i][j]
+                  }
+                }
+                return sum
+              }
+              // 4) знаходимо загальний прибуток за вихідні дні
+              let totalPriceDuringWeekend = (table) => {
+                let sum = 0
+                for (let i = 0; i < table.length; i++) {
+                  for (let j = 5; j < table[i].length; j++) {
+                    sum += table[i][j]
+                  }
+                }
+                return sum
+              }
+              // 5) знаходимо максимальний прибуток за середу
+              let maxPriceOnWednesday = (table) => {
+                let maxPrice = -Infinity
+                for (let i = 0; i < table.length; i++) {
+                  if (maxPrice < table[i][2]) maxPrice = table[i][2]
+                }
+                return maxPrice
+              }
+
+              // сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200
+              let priceMoreThen200 = (table) => {
+                let tableArray = table
+                  .flat(1)
+                  .filter((element) => element > 200)
+                return tableArray
+              }
+
+              //========================================================================================================================================================
+              let getShopsCount = parseInt(
+                prompt("Введіть будь ласка кількість магазинів")
+              )
+
+              let table = getRandomTable(getShopsCount, 7, 1, 500)
+              document.write(`Початковий масив:<br>${table.join("<br>")}<br>`)
+
+              document.write(
+                `Загальний прибуток кожного масиву за тиждень: ${totalPriceEachArrayForWeek(
+                  table
+                )}<br>`
+              )
+
+              document.write(
+                `Загальний прибуток усіх магазинів за робочі дні: ${totalPriceDuringWorkingDays(
+                  table
+                )}<br>`
+              )
+
+              document.write(
+                `Загальний прибуток усіх магазинів за вихідні дні: ${totalPriceDuringWeekend(
+                  table
+                )}<br>`
+              )
+
+              document.write(
+                `Максимальний прибуток за середу: ${maxPriceOnWednesday(
+                  table
+                )}<br>`
+              )
+
+              document.write(
+                `загальний список (одновимірний масив) зі значенням, які що більші за 200: ${priceMoreThen200(
+                  table
+                )}<br>`
+              )
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

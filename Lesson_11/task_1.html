@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Знайти суми елементів у вказаній області (масиви розділені на 4
+                рівні частини)
+              </p>
+            </fieldset>
+            <script>
+              // функція генерування числа
+              let randomNumber = (minValue, maxValue) => {
+                return (
+                  minValue +
+                  Math.floor(Math.random() * (maxValue - minValue + 1))
+                )
+              }
+
+              //   функція генерування одного одновимірного масиву
+              let getRandomArray = (arrayLength, minValue, maxValue) => {
+                const array = []
+                for (let i = 0; i < arrayLength; i++) {
+                  array.push(randomNumber(minValue, maxValue))
+                }
+                return array
+              }
+
+              //   фунцкія генерування таблиці
+              let getRandomTable = (
+                rowsNumber,
+                columnNumber,
+                minValue,
+                maxValue
+              ) => {
+                const table = []
+                for (let i = 0; i < rowsNumber; i++) {
+                  table.push(getRandomArray(columnNumber, minValue, maxValue))
+                }
+                return table
+              }
+
+              //   знаходимо суму першої області
+              let sumOfFirstArea = (table) => {
+                let sum = 0
+                for (let i = 0; i < 2; i++) {
+                  for (let j = 0; j < 2; j++) {
+                    sum += table[i][j]
+                  }
+                }
+                return sum
+              }
+
+              //   знаходимо суму другої області
+              let sumOfSecondtArea = (table) => {
+                let sum = 0
+                for (let i = 0; i < 2; i++) {
+                  for (let j = 2; j < table[i].length; j++) {
+                    sum += table[i][j]
+                  }
+                }
+                return sum
+              }
+
+              //   знаходимо суму третьої області
+              let sumOfThirdtArea = (table) => {
+                let sum = 0
+                for (let i = 2; i < table.length; i++) {
+                  for (let j = 0; j < 2; j++) {
+                    sum += table[i][j]
+                  }
+                }
+                return sum
+              }
+
+              //   знаходимо суму четвертої області
+              let sumOfFourthtArea = (table) => {
+                let sum = 0
+                for (let i = 2; i < table.length; i++) {
+                  for (let j = 2; j < table[i].length; j++) {
+                    sum += table[i][j]
+                  }
+                }
+                return sum
+              }
+
+              //   знаходимо суму парних рядків
+              let sumOfEvenRows = (table) => {
+                let sum = 0
+                for (let i = 0; i < table.length; i += 2) {
+                  for (let j = 0; j < table[i].length; j++) {
+                    sum += table[i][j]
+                  }
+                }
+                return sum
+              }
+
+              //   знаходимо суму непарних стовпців
+              let sumOfOddColumns = (table) => {
+                let sum = 0
+                for (let i = 0; i < table.length; i++) {
+                  for (let j = 1; j < table[i].length; j += 2) {
+                    sum += table[i][j]
+                  }
+                }
+                return sum
+              }
+              //   знаходимо суму у парних рядках - непарні стовпці, у непарних рядках - парні стовпці
+              let sumInEvenRowsOddColumnsAndInOddRowsEvenColumns = (table) => {
+                let sum = 0
+                for (let i = 0; i < table.length; i++) {
+                  if (i % 2 == 0) {
+                    for (let j = 1; j < table[i].length; j += 2) {
+                      sum += table[i][j]
+                    }
+                  } else {
+                    for (let j = 0; j < table[i].length; j += 2) {
+                      sum += table[i][j]
+                    }
+                  }
+                }
+                return sum
+              }
+              //========================================================================================================================================================
+
+              let table = getRandomTable(4, 4, 1, 50)
+              document.write(`Початковий масив:<br>${table.join("<br>")}<br>`)
+
+              document.write(
+                `Сума першої області: ${sumOfFirstArea(table)}<br>`
+              )
+
+              document.write(
+                `Сума другої області: ${sumOfSecondtArea(table)}<br>`
+              )
+
+              document.write(
+                `Сума третьої області: ${sumOfThirdtArea(table)}<br>`
+              )
+
+              document.write(
+                `Сума четвертої області: ${sumOfFourthtArea(table)}<br>`
+              )
+
+              document.write(`Сума парних рядків: ${sumOfEvenRows(table)}<br>`)
+
+              document.write(
+                `Сума непарних стовпців: ${sumOfOddColumns(table)}<br>`
+              )
+              document.write(
+                `Сума у парних рядках - непарних стовпців, у непарних рядках - парних стовпців: ${sumInEvenRowsOddColumnsAndInOddRowsEvenColumns(
+                  table
+                )}<br>`
+              )
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>
