@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 2</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано масив 30 випадкових цілих чисел. Підрахувати скільки було
+                обмінів під час сортування змішуванням.
+              </p>
+            </fieldset>
+            <script>
+              // функція генерування числа
+              function getRandomNumber(minValue = 1, maxValue = 500) {
+                return (
+                  minValue +
+                  Math.floor(Math.random() * (maxValue - minValue + 1))
+                )
+              }
+              // початковий масив
+              function getArray() {
+                const array = []
+
+                for (let i = 0; i < 30; i++) {
+                  let randomNumber = getRandomNumber()
+                  array.push(randomNumber)
+                }
+                return array
+              }
+
+              // функція підрахунку кількості змін змішуванням
+              function getCocktailSort(array) {
+                let leftIndex = 0
+                let rightIndex = array.length - 1
+                let counter = 0
+
+                while (leftIndex < rightIndex) {
+                  for (let i = leftIndex; i < rightIndex; i++) {
+                    if (array[i] > array[i + 1]) {
+                      let temp = array[i]
+                      array[i] = array[i + 1]
+                      array[i + 1] = temp
+                      counter++
+                    }
+                  }
+                  rightIndex--
+
+                  for (let i = rightIndex; i > leftIndex; i--) {
+                    if (array[i] < array[i - 1]) {
+                      let temp = array[i]
+                      array[i] = array[i - 1]
+                      array[i - 1] = temp
+                      counter++
+                    }
+                  }
+                  leftIndex++
+                }
+                return counter
+              }
+              // =============================================================================================
+              let initialArray = getArray()
+              document.write(`Початковий масив: ${initialArray}<br>`)
+
+              let countOfChanges = getCocktailSort(initialArray)
+              document.write(`Кількість обмінів: ${countOfChanges}`)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

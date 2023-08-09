@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 5</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано масив 30 випадкових цілих чисел. Підрахувати скільки було
+                обмінів під час сортування бульбашкою
+              </p>
+            </fieldset>
+            <script>
+              let namesArray = [
+                "Олег",
+                "Влада",
+                "Георгій",
+                "Анатолій",
+                "Дмитро",
+                "Ольга",
+                "Володимир",
+                "Михайло",
+              ]
+
+              function findIndexByBinarySearch(array, searchElement) {
+                let start = 0
+                let end = array.length - 1
+                while (start <= end) {
+                  const middle = Math.floor((start + end) / 2)
+                  if (array[middle] === searchElement) return middle
+                  if (array[middle] < searchElement) start = middle + 1
+                  if (array[middle] > searchElement) end = middle - 1
+                }
+                return -1
+              }
+
+              // =============================================================================================
+              let initialArray = namesArray.sort()
+              document.write(`Масив імен: ${initialArray}<br>`)
+
+              const findIndex = findIndexByBinarySearch(initialArray, "Ольга")
+              if (findIndex !== -1) {
+                document.write(
+                  `Ольга входить у список під індексом ${findIndex}`
+                )
+              } else {
+                document.write("Ольга відсутня у списку")
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 6</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 6</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано масив імен. Застосовуючи відповідне сортування та бінарний
+                пошук визначити, чи є у масиві ім’я довжиною 5 символів і під
+                яким індексом.
+              </p>
+            </fieldset>
+            <script>
+              let namesArray = [
+                "Олег",
+                "Валентина",
+                "Влада",
+                "Георгій",
+                "Анатолій",
+                "Дмитро",
+                "Ольга",
+                "Володимир",
+                "Михайло",
+              ]
+
+              let sortedList = namesArray.sort(
+                (name1, name2) => name1.length - name2.length
+              )
+
+              function findIndexByBinarySearch(array, searchElement) {
+                let start = 0
+                let end = array.length - 1
+                while (start <= end) {
+                  let middle = Math.floor((start + end) / 2)
+                  let name = array[middle]
+
+                  if (name.length === searchElement) return middle
+                  if (name.length < searchElement) start = middle + 1
+                  if (name.length > searchElement) end = middle - 1
+                }
+                return -1
+              }
+
+              // =============================================================================================
+
+              const findIndex = findIndexByBinarySearch(sortedList, 5)
+              if (findIndex !== -1) {
+                document.write(
+                  `Ім'я довжиною 5 символів знаходиться під індексом ${findIndex}`
+                )
+              } else {
+                document.write("Ім'я довжиною 5 символів відсутнє у списку")
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>
