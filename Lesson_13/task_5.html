@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 5</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Тренажер додавання. Кожні 10 секунд користувачу задають
+                випадковий приклад з додавання двох цифр і робиться перевірка.
+              </p>
+            </fieldset>
+            <script>
+              function timeOut() {
+                setTimeout(() => {
+                  getAdditionTrainer()
+                  timeOut()
+                }, 10000)
+              }
+              timeOut()
+
+              function getRundomNumber(minValue = 1, maxValue = 100) {
+                return (
+                  minValue +
+                  Math.floor(Math.random() * (maxValue - minValue + 1))
+                )
+              }
+
+              function getAdditionTrainer() {
+                let sum = 0
+                let firstNumber = getRundomNumber()
+                let secondNumber = getRundomNumber()
+                let answer = parseInt(
+                  prompt(`${firstNumber} + ${secondNumber} = ?`)
+                )
+                sum = firstNumber + secondNumber
+                if (answer === sum) alert("Ви відповіли вірно. Молодець!")
+                else alert(`Відповідь не вірна. ${sum} - вірна`)
+                return answer
+              }
+
+              // =============================================================================================
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

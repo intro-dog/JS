@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Розв’язати з використанням рекурсивних і нерекурсивних
+                алгоритмів
+              </p>
+            </fieldset>
+            <script>
+              // функція з використанням рекурсивних алгоритмів
+              function getX(i = 10) {
+                if (i === 0) return 1
+                else return getX(i - 1) + 2 * i
+              }
+
+              //  функція за допомогою не рекурсивної функції
+              function getXByFor(i = 10) {
+                let solution = 1
+                if (i === 0) return 1
+
+                for (let j = 1; j <= i; j++) {
+                  solution += 2 * j
+                }
+                return solution
+              }
+              // =============================================================================================
+
+              let xIByRecursion = getX()
+              document.write(
+                `З використанням рекурсивних алгоритмів: ${xIByRecursion}<br>`
+              )
+
+              let xIByFor = getXByFor()
+              document.write(
+                `З використанням не рекурсивних алгоритмів: ${xIByFor}`
+              )
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

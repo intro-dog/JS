@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 3</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                З використанням замикань розробити ітератор, тобто функцію, що
+                буде поступово за окремими викликами видавати по одне значення
+                від заданого мінімального до заданого максимального. Якщо
+                значення досягне максимального, то наступним буде мінімальне
+                значення. З використанням цієї функції реалізувати перебір
+                номерів місяців.
+              </p>
+            </fieldset>
+            <script>
+              // ітератор по номерам місяців
+              function getMonthIterator(monthNum, min = 1, max = 12) {
+                // --- правило коректної зміни номера місяця
+                function getNextMonth() {
+                  if (monthNum === max) monthNum = 1
+                  else ++monthNum
+                  return monthNum
+                }
+                // --- повертаємо правило зміни місяця
+                return getNextMonth
+              }
+
+              function printMonth(monthCount, nextMonth) {
+                for (let i = 0; i < monthCount; i++) {
+                  document.write(`${nextMonth()}<br>`)
+                }
+              }
+
+              // =============================================================================================
+              let monthNum = parseInt(
+                prompt(
+                  "Введіть будь ласка номер місяця, з якого треба починати відлік"
+                )
+              )
+
+              let monthCount = parseInt(
+                prompt(
+                  "Введіть будь ласка кількість місяців, які треба вивести"
+                )
+              )
+
+              printMonth(monthCount, getMonthIterator(monthNum - 1))
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>
