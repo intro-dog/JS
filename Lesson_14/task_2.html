@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 2</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Розробити функцію, у яку передають об’єкт (день, місяць, рік).
+                Визначити, який буде рік через N місяців.
+              </p>
+            </fieldset>
+            <script>
+              let currentDate = {
+                day: 20,
+                month: 8,
+                year: 2023,
+              }
+
+              function getFutereYear(currentDate, n) {
+                return (
+                  currentDate.year +
+                  Math.floor((currentDate.month - 1 + n) / 12)
+                )
+              }
+              // =============================================================================================
+              let numberOfMonth = parseInt(
+                prompt(
+                  "Введіть будь ласка кількість місяців, щоб дізнатись, яким буде рік: "
+                )
+              )
+              let futureMonth = getFutereYear(currentDate, numberOfMonth)
+              document.write(
+                `Через ${numberOfMonth} місяців буде ${futureMonth} рік`
+              )
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

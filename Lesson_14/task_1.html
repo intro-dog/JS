@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Описати масив об’єктів – сайтів розроблених компанією з такими
+                властивостями ----- Властивості ------ назва компанії на час
+                розробки (назву періодично змінюють) власник компанії споснсори
+                (масив спонсорів) * прізвище спонсора * ім’я спонсора * сума
+                вкладень спонсора рік випуску вартість сайту
+              </p>
+            </fieldset>
+            <script>
+              let sitesList = [
+                {
+                  companyName: "Clorox",
+                  companyOwner: "Damien Cook",
+                  sponsors: [
+                    {
+                      firstName: "Corbin",
+                      lastName: "Campbell",
+                      investmentAmount: 10000,
+                    },
+                    {
+                      firstName: "Irving",
+                      lastName: "Ross",
+                      investmentAmount: 7000,
+                    },
+                  ],
+                  realeaseYear: 2010,
+                  siteCost: 30000,
+                },
+                {
+                  companyName: "Rufo",
+                  companyOwner: "Talon Torres",
+                  sponsors: [
+                    {
+                      firstName: "Drake",
+                      lastName: "Johnson",
+                      investmentAmount: 5000,
+                    },
+                    {
+                      firstName: "Urbane",
+                      lastName: "Roberts",
+                      investmentAmount: 17000,
+                    },
+                    {
+                      firstName: "Malachi",
+                      lastName: "Miller",
+                      investmentAmount: 11000,
+                    },
+                  ],
+                  realeaseYear: 2005,
+                  siteCost: 25000,
+                },
+                {
+                  companyName: "Stombo",
+                  companyOwner: "Phineas Moore",
+                  sponsors: [
+                    {
+                      firstName: "Vander",
+                      lastName: "Rivera",
+                      investmentAmount: 20000,
+                    },
+                    {
+                      firstName: "Kenley",
+                      lastName: "Ross",
+                      investmentAmount: 5000,
+                    },
+                    {
+                      firstName: "Xavi",
+                      lastName: "Watson",
+                      investmentAmount: 50000,
+                    },
+                    {
+                      firstName: "Malcolm",
+                      lastName: "Powell",
+                      investmentAmount: 55555,
+                    },
+                  ],
+                  realeaseYear: 2017,
+                  siteCost: 100000,
+                },
+              ]
+
+              // функція підрахунку сайтів між періодом
+              function getSitesRealeseNumber(object, startYear, endYear) {
+                let realeaseYearCounter = 0
+                for (const year of object) {
+                  if (
+                    year.realeaseYear > startYear &&
+                    year.realeaseYear < endYear
+                  )
+                    realeaseYearCounter++
+                }
+                return realeaseYearCounter
+              }
+
+              // функція підрахунку загальної суми усіх сайтів
+              function getSitesTotalAmount(object) {
+                return object.reduce(
+                  (prevAmount, cost) => prevAmount + cost.siteCost,
+                  0
+                )
+              }
+
+              // функція виводу усіх спонсорів
+              function getSponsorsList(object) {
+                return object.map(({ sponsors }) =>
+                  sponsors.map(
+                    (sponsor) => `${sponsor.firstName} ${sponsor.lastName}`
+                  )
+                )
+              }
+
+              // функція пошуку найбільш прибуткового року
+              function getTheMostValueYer(object) {
+                let max = -Infinity
+                let maxValuableYear = 0
+                for (const iterator of object) {
+                  if (iterator.siteCost > max) {
+                    max = iterator.siteCost
+                    maxValuableYear = iterator.realeaseYear
+                  }
+                }
+                return maxValuableYear
+              }
+
+              // функція сортування списку за спаданням прибутку
+              function getSortSitesByProfit(object) {
+                let sort = object.sort(
+                  (firstSite, secondSite) =>
+                    secondSite.siteCost - firstSite.siteCost
+                )
+                return sort
+              }
+
+              // =============================================================================================
+
+              let sitesTotalAmount = getSitesTotalAmount(sitesList)
+              document.write(
+                `1) Загальна сума усіх сайтів = ${sitesTotalAmount}$<br>`
+              )
+
+              let realeaseYearCount = getSitesRealeseNumber(
+                sitesList,
+                2000,
+                2009
+              )
+              document.write(
+                `2) Кількість сайтів, що були зроблені між 2000 та 2009 рp = ${realeaseYearCount}<br>`
+              )
+
+              let allSponsorsList = getSponsorsList(sitesList)
+              document.write(
+                `4) Загальний список усіх інвесторів: ${allSponsorsList}<br>`
+              )
+
+              let maxValuableYear = getTheMostValueYer(sitesList)
+              document.write(
+                `5) Рік, коли прибуток був найбільшим - ${maxValuableYear}р.<br>`
+              )
+
+              document.write("6) Сортування прибутку сайтів за спаданням: ")
+              for (let site of getSortSitesByProfit(sitesList)) {
+                document.write(site.siteCost + "; ")
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

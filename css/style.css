@@ -32,7 +32,10 @@ body {
     max-width: 1200px;
     margin: 0px 30px;
     padding: 0px 15px;
-    
+}
+.wr {
+    display: flex;
+    gap: 150px;
 }
 @media (max-width:1200px) {
     .container {
@@ -50,10 +53,23 @@ body {
     .container {
         max-width: none;
     }
+    .wr {
+        display: flex;
+        flex-direction: column;
+        gap: 20px; 
+    }
+    
 }
 
 
-@media (max-width:420px) {}
+@media (max-width:420px) {
+    .wr {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: none;
+        }
+}
 #home__upbutton {
     padding-top: 25px;
     text-align: center;
@@ -73,6 +89,7 @@ body {
     padding: 12px;
     transition: 0.4s ease;
 }
+
 /* header */
 .text__item {
     text-align: center;
@@ -236,6 +253,9 @@ body {
     flex-direction: column;
     gap: 20px;
     list-style: none;
+}
+.dz {
+    max-width: 500px;
 }
 
 .list__elements>a:hover {
