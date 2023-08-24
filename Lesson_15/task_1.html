@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому
+                квадраті є заєць і 0 в іншому випадку.
+              </p>
+            </fieldset>
+            <script>
+              // Масив, у якому зберігається поле з зайцями
+              class ShootingRange {
+                constructor(arrField) {
+                  this.field = arrField
+                }
+
+                // Метод пострілу (задається позиція пострілу)
+                shot(field, position) {
+                  if (this.field[position] === 1) {
+                    alert("Ви влучили")
+                  } else {
+                    alert("Повторіть спробу")
+                  }
+                }
+
+                // Виведення ігрового поля
+                generateField(elementsNumber) {
+                  this.field = []
+
+                  for (let i = 0; i < elementsNumber; i++) {
+                    let randomNumbers = Math.floor(Math.random() * 2)
+                    this.field.push(randomNumbers)
+                  }
+                  return this.field
+                }
+
+                toString() {
+                  return `${this.field}`
+                }
+              }
+
+              // =============================================================================================
+
+              const elementsNumber = parseInt(
+                prompt("Введіть будь ласка кількість комірок поля")
+              )
+
+              const position = parseInt(
+                prompt("Введіть будь ласка позицію по якій здійснити постріл")
+              )
+
+              let shootingRange = new ShootingRange()
+              shootingRange.shot(
+                shootingRange.generateField(elementsNumber),
+                position
+              )
+              document.write(shootingRange)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

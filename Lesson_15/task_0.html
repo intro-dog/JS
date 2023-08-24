@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 0</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 0</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у
+                одному з них є функція знаходження суми, а у іншому – функція
+                для знаходження добутку тих, які знаходяться між заданими
+                мінімальним і максимальних значенням. Використати обидва методи
+                стосовно обидвох об’єктів (використати call, apply)
+              </p>
+            </fieldset>
+            <script>
+              class FirstObject {
+                constructor(numbersList) {
+                  this.numbersList = numbersList
+                }
+
+                getSum() {
+                  return this.numbersList.reduce(
+                    (prevNum, num) => prevNum + num,
+                    0
+                  )
+                }
+
+                toString() {
+                  return `${this.numbersList}`
+                }
+              }
+
+              class SecondObject {
+                constructor(numbersList) {
+                  this.numbersList = numbersList
+                }
+
+                getProductBetweenNumbers(firstNumber, secondNumber) {
+                  return this.numbersList.reduce(
+                    (prevNumber, number) =>
+                      number > firstNumber && number < secondNumber
+                        ? prevNumber * number
+                        : prevNumber,
+                    1
+                  )
+                }
+
+                toString() {
+                  return `${this.numbersList}`
+                }
+              }
+              // =============================================================================================
+              let firstObject = new FirstObject([5, 6, 2, 3, 1, 8, 9])
+              document.write(
+                `Початковий масив чисел першого об’єкта: ${firstObject}<br>`
+              )
+              document.write(
+                `Сума усіх чисел масиву першого об’єкта: ${firstObject.getSum()}<br>`
+              )
+
+              let secondObject = new SecondObject([7, 9, 1, 4, 5, 8, 2])
+              document.write(
+                `Початковий масив чисел другого об’єкта: ${secondObject}<br>`
+              )
+
+              document.write(
+                `Сума усіх чисел масиву другого об’єкта: ${firstObject.getSum.call(
+                  secondObject
+                )}<br>`
+              )
+
+              document.write(
+                `Добуток чисел масиву між мінімальними і максимальними значеннями першого об’єкта: ${secondObject.getProductBetweenNumbers.call(
+                  firstObject,
+                  4,
+                  8
+                )}<br>`
+              )
+
+              document.write(
+                `Добуток чисел масиву між мінімальними і максимальними значеннями другого об’єкта: ${secondObject.getProductBetweenNumbers(
+                  4,
+                  8
+                )}<br>`
+              )
+
+              document.write(
+                `Сума усіх чисел масиву другого об’єкта (використовуючи apply): ${firstObject.getSum.apply(
+                  secondObject
+                )}<br>`
+              )
+
+              document.write(
+                `Добуток чисел масиву між мінамальними і максимальними значеннями першого об’єкта (використовуючи: apply): ${secondObject.getProductBetweenNumbers.apply(
+                  firstObject,
+                  [4, 10]
+                )}<br>`
+              )
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

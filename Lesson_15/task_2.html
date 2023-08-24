@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 2</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">Створити об’єкт «Авто».</p>
+            </fieldset>
+            <script>
+              class Auto {
+                constructor(
+                  model,
+                  tankSize,
+                  numberOfLiters,
+                  numberOfSeats,
+                  numberOfPassengers
+                ) {
+                  this.model = model
+                  this.tankSize = tankSize
+                  this.numberOfLiters = numberOfLiters
+                  this.numberOfSeats = numberOfSeats
+                  this.numberOfPassengers = numberOfPassengers
+                }
+
+                // Заправка на вказану кількість літрів
+                refuelingOfLiters(litersToAdd) {
+                  if (this.tankSize < this.numberOfLiters + litersToAdd)
+                    throw new Error("Недостатньо місця")
+                  document.write(
+                    `В баку ${(this.numberOfLiters +=
+                      litersToAdd)} літри(ів)<br>`
+                  )
+                }
+
+                // Виведення кількості пасажирів
+                getOutputPassengersNumber() {
+                  if (this.numberOfPassengers > this.numberOfSeats) {
+                    throw new Error(
+                      "Автомобіль переповнено. Ви можете отримати штраф!"
+                    )
+                  }
+                  document.write(
+                    `В автомобілі нараховується ${this.numberOfPassengers} пасажири(ів)<br>`
+                  )
+                }
+
+                // Додавання пасажирів
+                addPassengers(passengerCount) {
+                  if (
+                    this.numberOfSeats <
+                    this.numberOfPassengers + passengerCount
+                  ) {
+                    throw new Error("Ви не можете додати пасажира(ів)!")
+                  }
+                  document.write(
+                    `В автомобілі нараховується ${
+                      this.numberOfPassengers + passengerCount
+                    } пасажири(ів)<br>`
+                  )
+                }
+
+                // Висадка пасажирів
+                disembarkingPassengers(passengerCount) {
+                  if (
+                    this.numberOfSeats <
+                    this.numberOfPassengers - passengerCount
+                  ) {
+                    throw new Error(
+                      `В автомобілі ${this.numberOfPassengers} пасажири(ів). Ви не можете висадити більше доступних`
+                    )
+                  } else if (this.numberOfPassengers - passengerCount === 0) {
+                    document.write(`В автомобілі пусто, всі вийшли<br>`)
+                  } else {
+                    document.write(
+                      `В автомобілі залишилось ${
+                        this.numberOfPassengers - passengerCount
+                      } пасажири(ів)<br>`
+                    )
+                  }
+                }
+
+                toString() {
+                  return `Марка
+- ${this.model},<br>Розмір бака - ${this.tankSize},<br>Кількість наявних літрів - ${this.numberOfLiters},<br>Кількість місць - ${this.numberOfSeats},<br>Кількість пасажирів - ${this.numberOfPassengers}<br>`
+                }
+              }
+              // =============================================================================================
+              // model, tankSize, amountLiters, numberOfSeats, passengersAmount
+              let auto = new Auto("Bogdan", 100, 80, 65, 55)
+              auto.refuelingOfLiters(15)
+              auto.getOutputPassengersNumber()
+              auto.disembarkingPassengers(55)
+              auto.addPassengers(15)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

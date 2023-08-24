@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 3</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">Розробити клас «Керівник танців»</p>
+            </fieldset>
+            <script>
+              class DancesHead {
+                constructor(boysList, girlsList) {
+                  this.boysList = boysList
+                  this.girlsList = girlsList
+                }
+
+                getRandomNumber(array) {
+                  return Math.floor(Math.random() * array.length)
+                }
+
+                getRandomBoyName(boysList) {
+                  let randomNumber = this.getRandomNumber(boysList)
+                  let boyName = boysList[randomNumber]
+                  return boyName
+                }
+
+                getRandomGirlName(girlsList) {
+                  let randomNumber = this.getRandomNumber(girlsList)
+                  let girlName = girlsList[randomNumber]
+                  return girlName
+                }
+
+                getPairForDancing(boysList, girlsList) {
+                  let arrayNames = []
+
+                  let randomBoyName = this.getRandomBoyName(boysList)
+                  let randomGirlName = this.getRandomGirlName(girlsList)
+                  arr.push(`${randomBoyName} - ${randomGirlName}`)
+
+                  return arrayNames
+                }
+
+                run(boysList, girlsList) {
+                  setInterval(() => {
+                    alert(this.getPairForDancing(boysList, girlsList))
+                  }, 5000)
+                }
+
+                toString() {
+                  return `${this.boysList}<br>${this.girlsList}`
+                }
+              }
+              // =============================================================================================
+              let boys = [
+                "Nelson",
+                "Ronald",
+                "Dzhek",
+                "Kornelius",
+                "E­ntoni",
+                "Dennis",
+                "Mark",
+                "Dzhoshua",
+                "E­bner",
+              ]
+              let girls = [
+                "Shona",
+                "Marlen",
+                "Kristina",
+                "Magdalen",
+                "Helen",
+                "Dzhesmin",
+                "Uinifred",
+                "Edit",
+                "Endzhel",
+                "Stella",
+              ]
+              let dancesHead = new DancesHead(boys, girls)
+              dancesHead.run(boys, girls)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>
