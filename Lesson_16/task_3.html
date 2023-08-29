@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 3</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Об’єкт “Фірма” (використати члени-класи) поля назва фірми; дата
+                заснування (рік, місяць); послуги (назва послуги, вартість,
+                термін виконання); адреси філіалів (країна, місто, вулиця, номер
+                будинку); методи визначення кількості років існування фірми;
+                виведення всіх філіалів фірми у вказаному місті; виведення на
+                екран послуг, що можуть бути виконані за вказану суму грошей та
+                вказаний термін часу;
+              </p>
+            </fieldset>
+            <script>
+              class Firm {
+                constructor(name, establishmentYear, establishmentDate) {
+                  this.name = name
+                  this.establishmentYear = establishmentYear
+                  this.establishmentDate = establishmentDate
+                  this.service = []
+                  this.branches = []
+                }
+
+                addService(serviceName, serviceCost, serviceDuration) {
+                  let service = new Service(
+                    serviceName,
+                    serviceCost,
+                    serviceDuration
+                  )
+                  this.service.push(service)
+                }
+
+                addBranch(
+                  branchCountry,
+                  branchCity,
+                  branchStreet,
+                  branchBuildingNumber
+                ) {
+                  let address = new Address(
+                    branchCountry,
+                    branchCity,
+                    branchStreet,
+                    branchBuildingNumber
+                  )
+                  this.branches.push(address)
+                }
+
+                getExistenceYears() {
+                  let currentYear = new Date().getFullYear()
+                  let currentMonth = new Date().getMonth() + 1
+                  let getExistenceYears = currentYear - this.establishmentYear
+                  if (currentMonth > this.establishmentDate) {
+                    getExistenceYears++
+                  }
+                  return getExistenceYears
+                }
+
+                getBrancheFromCity(city) {
+                  return this.branches.filter((branch) => branch.city === city)
+                }
+
+                getServiceSpecifiedAmount(maxCost, maxDuration) {
+                  return this.service.filter(
+                    (service) =>
+                      service.cost <= maxCost && service.duration <= maxDuration
+                  )
+                }
+
+                toString() {
+                  return `Фірма: ${this.name} була заснована ${
+                    this.establishmentYear
+                  } року ${
+                    this.establishmentDate
+                  } місяця. Роки існування: ${this.getExistenceYears()} років <br>`
+                }
+              }
+
+              class Service {
+                constructor(name, cost, duration) {
+                  this.name = name
+                  this.cost = cost
+                  this.duration = duration
+                }
+
+                toString() {
+                  return `${this.name}. Вартість: ${this.cost}$, Тривалість: ${this.duration} днів<br>`
+                }
+              }
+
+              class Address {
+                constructor(country, city, street, houseNumber) {
+                  this.country = country
+                  this.city = city
+                  this.street = street
+                  this.houseNumber = houseNumber
+                }
+
+                toString() {
+                  return `Країна: ${this.country}, Місто: ${this.city}, Адреса: ${this.street} ${this.houseNumber}<br>`
+                }
+              }
+
+              function forOf(array) {
+                for (const iterator of array) {
+                  document.write(iterator)
+                }
+              }
+
+              // =============================================================================================
+              let firm = new Firm("Name", 2010, 7)
+
+              firm.addService("Service1", 500, 10)
+              firm.addService("Service2", 1000, 20)
+              firm.addService("Service2", 300, 5)
+
+              firm.addBranch("Ukraine", "Kharkiv", "Independent street", 1)
+              firm.addBranch("UK", "London", "Oxford street", 12)
+              firm.addBranch("UK", "London", "Abbey Road", 17)
+              document.write(`${firm}`)
+
+              document.write(`<br>`)
+              let branchFromCity = firm.getBrancheFromCity("London")
+              document.write(`Філіали у місті London: <br>`)
+              forOf(branchFromCity)
+
+              document.write(`<br>`)
+              let serviceSpecifiedAmount = firm.getServiceSpecifiedAmount(
+                500,
+                20
+              )
+              document.write(`Послуги за вказаним бюджетом:<br>`)
+              forOf(serviceSpecifiedAmount)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

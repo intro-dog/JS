@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 2</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Створити клас TMoney для роботи з грошовими сумами. Сума повинна
+                зберігатися у вигляді доларового еквіваленту. Реалізувати методи
+                додавання/вилучення грошової маси, вказуючи необхідну суму у
+                гривнях, та визначення курсу долара, при якому сума у гривнях
+                збільшиться на 100. Курс долара зберігати в окремому полі.
+              </p>
+            </fieldset>
+            <script>
+              class TMoney {
+                #dollarBalance
+                #dollarRate
+
+                constructor(GRNBalance, dollarRate) {
+                  this.Rate = dollarRate
+                  this.Balance = GRNBalance
+                }
+
+                get Rate() {
+                  return this.#dollarRate
+                }
+
+                set Rate(rate) {
+                  if (rate <= 0) {
+                    throw new Error("Курс долара повинен бути більше за нуль!")
+                  }
+                  this.#dollarRate = rate
+                }
+
+                get Balance() {
+                  return this.#dollarBalance * this.Rate
+                }
+
+                set Balance(sumGrn) {
+                  if (sumGrn < 0) {
+                    throw Error("Помилка. Сума не може бути менше за нуль")
+                  }
+                  this.#dollarBalance = sumGrn / this.Rate
+                }
+
+                addMoney(sumGrn) {
+                  if (sumGrn < 0) {
+                    throw new Error("Сума попвонення має бути більшою за нуль")
+                  }
+                  this.Balance += sumGrn
+                }
+
+                withdrawMoney(sumGrn) {
+                  if (sumGrn < 0) {
+                    throw new Error("Сума попвонення має бути більшою за нуль")
+                  }
+                  if (sumGrn > this.Balance) {
+                    throw new Error("Немає стільки грошей на рахунку")
+                  }
+                  this.Balance -= sumGrn
+                }
+
+                getAmount100Rate() {
+                  return (this.Balance + 100) / this.#dollarBalance
+                }
+
+                toString() {
+                  return `Баланс: ${this.#dollarBalance.toFixed(2)} $ за ${
+                    this.#dollarRate
+                  } грн`
+                }
+              }
+
+              // =============================================================================================
+              let money = new TMoney(100000, 36.56)
+              document.write(money)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

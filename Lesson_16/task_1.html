@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Створити клас TDate для роботи із датами у форматі
+                “день.місяць.рік”. Дата представляється структурою із трьома
+                полями. Реалізувати методи збільшення/зменшення дати на певну
+                кількість днів, місяців чи років. Введення та виведення дати
+                реалізувати за допомогою методу toString.
+              </p>
+            </fieldset>
+            <script>
+              class TDate {
+                #day
+                #month
+                #year
+
+                constructor(day, month, year) {
+                  this.Day = day
+                  this.Month = month
+                  this.Year = year
+                }
+
+                get Day() {
+                  return this.#day
+                }
+
+                set Day(value) {
+                  if (value < 1 || value > 31) {
+                    throw new Error("В місяці немає такого дня")
+                  }
+                  this.#day = value
+                }
+
+                get Month() {
+                  return this.#month
+                }
+
+                set Month(value) {
+                  if (value < 1 || value > 12) {
+                    throw new Error("В році немає такого місяця")
+                  }
+                  this.#month = value
+                }
+
+                get Year() {
+                  return this.#year
+                }
+
+                set Year(value) {
+                  if (value < 1) {
+                    throw new Error("Значення року не може бути від'ємним")
+                  }
+                  this.#year = value
+                }
+
+                additionDays() {
+                  let additionalDays = parseInt(
+                    prompt("Скільки днів додати до поточної дати?")
+                  )
+                  const date = new Date(this.#year, this.#month - 1, this.#day)
+                  date.setDate(date.getDate() + additionalDays)
+                  this.#year = date.getFullYear()
+                  this.#month = date.getMonth() + 1
+                  this.#day = date.getDate()
+                  return `${this.#day}.${this.#month}.${this.#year}`
+                }
+
+                reduceDays() {
+                  let reduceDays = parseInt(
+                    prompt("Скільки днів відняти від поточної дати?")
+                  )
+                  const date = new Date(this.#year, this.#month - 1, this.#day)
+                  date.setDate(date.getDate() - reduceDays)
+                  this.#year = date.getFullYear()
+                  this.#month = date.getMonth() + 1
+                  this.#day = date.getDate()
+                  return `${this.#day}.${this.#month}.${this.#year}`
+                }
+
+                chooseOption() {
+                  let askOption = parseInt(
+                    prompt(
+                      "Оберіть будь ласка опцію:\nДодати до поточної дати(1)\nВідняти від поточної дати(2)"
+                    )
+                  )
+                  switch (askOption) {
+                    case 1:
+                      document.write(
+                        `Дата після додавання: ${this.additionDays()}`
+                      )
+                      break
+                    case 2:
+                      document.write(
+                        `Дата після віднімання: ${this.reduceDays()}`
+                      )
+                      break
+                    default:
+                      throw new Error('Оберіть опцію "1" або "2"')
+                  }
+                }
+
+                toString() {
+                  return `${this.#day}.${this.#month}.${this.#year}`
+                }
+              }
+
+              // =============================================================================================
+
+              let currentDate = new TDate(
+                new Date().getDate(),
+                new Date().getMonth() + 1,
+                new Date().getFullYear()
+              )
+              document.write(`Поточна дата: ${currentDate}<br>`)
+              currentDate.chooseOption()
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

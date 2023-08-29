@@ -255,7 +255,7 @@ body {
     list-style: none;
 }
 .dz {
-    max-width: 500px;
+    min-width: 500px;
 }
 
 .list__elements>a:hover {
