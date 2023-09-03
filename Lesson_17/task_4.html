@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 4</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 4</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Особиста бібліотека. Картотека домашньої бібліотеки: дані книги
+                (автори (піб, рік народження, короткий опис), назва книги, жанр,
+                видавництво (назва, реєстраційний номер, рік засування)).
+                Реалізувати розділи бібліотеки організувати додавання/вилучення
+                книг та вибір книг за назвою, за ПІБ автора, за видавництвом.
+              </p>
+            </fieldset>
+            <script>
+              class HomeLibrary {
+                constructor(title, initBookList) {
+                  this.title = title
+                  this.bookList = initBookList
+                }
+
+                addBookToLibrary(book) {
+                  this.bookList.push(book)
+                }
+
+                removeBookFromLibrary(bookTitle) {
+                  this.bookList = this.productList.filter(
+                    (book) => book.title !== bookTitle
+                  )
+                }
+
+                chooseBookByTitle(bookTitle) {
+                  return this.bookList.filter((book) =>
+                    book.title.includes(bookTitle)
+                  )
+                }
+
+                choosBookByFullName(authorFullName) {
+                  return this.bookList.filter(
+                    (book) =>
+                      book.author.firstName.includes(authorFullName) ||
+                      book.author.lastName.includes(authorFullName)
+                  )
+                }
+
+                chooseBookByPulishing(publishing) {
+                  return this.bookList.filter((book) =>
+                    book.publishingHouse.name.includes(publishing)
+                  )
+                }
+              }
+
+              class Book {
+                constructor(initData) {
+                  Object.assign(this, initData)
+                }
+
+                toString() {
+                  let result = ""
+                  for (const key in this) {
+                    result += `${key} - ${this[key]},`
+                  }
+                  return result
+                }
+              }
+              // =============================================================================================
+              let bookList = [
+                new Book({
+                  author: {
+                    firstName: "Джон",
+                    lastName: "Доу",
+                    yearOfBirth: 1945,
+                    briefDescription:
+                      "Ця книга описує Французьку революцію очима молодого Француза, записна книга якого збереглася у Парижському музеї",
+                  },
+                  title: "Революціонер",
+                  genre: "Драма",
+                  publishingHouse: {
+                    name: "Ранок",
+                    registrationNumber: 123456,
+                    yearOfPublication: 1975,
+                  },
+                }),
+                new Book({
+                  author: {
+                    firstName: "Арнольд",
+                    lastName: "Клаус",
+                    yearOfBirth: 1955,
+                    briefDescription:
+                      "Книга про життя та традиції Козацької культури у мировій історії",
+                  },
+                  title: "Культ козацтва",
+                  genre: "Документальний",
+                  publishingHouse: {
+                    name: "Світанок",
+                    registrationNumber: 32565,
+                    yearOfPublication: 1990,
+                  },
+                }),
+                new Book({
+                  author: {
+                    firstName: "Ігнаціо",
+                    lastName: "Аббаті",
+                    yearOfBirth: 1910,
+                    briefDescription:
+                      "Книга про ставлення Італійської імперії під час Другої Світової Війни",
+                  },
+                  title: "Темна сторона Італії",
+                  genre: "Історичний",
+                  publishingHouse: {
+                    name: "Публіцист",
+                    registrationNumber: 65480,
+                    yearOfPublication: 1945,
+                  },
+                }),
+              ]
+
+              let bookLibrary = new HomeLibrary("Home library", bookList)
+              let filterByTitle = bookLibrary.chooseBookByTitle(
+                "Темна сторона Італії"
+              )
+              let filterByFullName = bookLibrary.choosBookByFullName("Клаус")
+              let filterByPublishing =
+                bookLibrary.chooseBookByPulishing("Ранок")
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 2</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Створити службове авто (водій, марка, номер). Створити клас
+                таким чином, щоб можна було створити тільки один екземпляр цього
+                класу.
+              </p>
+            </fieldset>
+            <script>
+              class CompanyCar {
+                static #companyCar
+
+                constructor(driverName, carModel, carNumber) {
+                  if (CompanyCar.#companyCar) return CompanyCar.#companyCar
+
+                  this.driverName = driverName
+                  this.carModel = carModel
+                  this.carNumber = carNumber
+
+                  CompanyCar.#companyCar = this
+                }
+
+                toString() {
+                  return `Ім'я водія: ${this.driverName},<br>Марка авто: ${this.carModel},<br>Номерний знак: ${this.carNumber}<br>`
+                }
+              }
+              // =============================================================================================
+              let firstCompanyCar = new CompanyCar("Orlando", "Audi", 9379992)
+              let secondCompanyCar = new CompanyCar("John", "Mercedes", 9332567)
+              document.write(firstCompanyCar)
+              document.write(
+                "<br>" + "=============================" + "<br>" + "<br>"
+              )
+              document.write(secondCompanyCar)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

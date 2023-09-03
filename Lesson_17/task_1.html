@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Створити клас, що дозволяє виконувати такі операції над
+                масивами: знаходження кількості додатних, кількості від’ємних,
+                кількість входжень деякого числа (статичні методи)
+              </p>
+            </fieldset>
+            <script>
+              class OperationsOnArray {
+                static getCountOfPositiveNumbers(array) {
+                  return array.reduce(
+                    (prevNumber, number) =>
+                      number > 0 ? prevNumber + 1 : prevNumber,
+                    0
+                  )
+                }
+
+                static getCountOfNegativeNumbers(array) {
+                  return array.reduce(
+                    (prevNumber, number) =>
+                      number < 0 ? prevNumber + 1 : prevNumber,
+                    0
+                  )
+                }
+
+                static getCountOfOccurrencesNumber(array) {
+                  let desiredNumber = parseInt(
+                    prompt(
+                      "Введіть будь ласка бажане число для вирахування входження у масив: "
+                    )
+                  )
+                  return array.reduce(
+                    (prevNumber, numberInArray) =>
+                      numberInArray === desiredNumber
+                        ? prevNumber + 1
+                        : prevNumber,
+                    0
+                  )
+                }
+              }
+
+              function getRandomNumbersArray(elementsNumber) {
+                let randomArray = []
+
+                for (let i = 0; i < elementsNumber; i++) {
+                  let randomNumbers = parseInt(
+                    prompt(`Введіть будь ласка ${i + 1} число:`)
+                  )
+                  randomArray.push(randomNumbers)
+                }
+                return randomArray
+              }
+              // =============================================================================================
+
+              let countArrayElement = parseInt(
+                prompt("Введіть будь ласка кількість елементів масиву: ")
+              )
+              let array = getRandomNumbersArray(countArrayElement)
+              document.write(`Початковий масив: ${array}<br>`)
+
+              document.write(
+                `Кількість додатних чисел: ${OperationsOnArray.getCountOfPositiveNumbers(
+                  array
+                )}<br>`
+              )
+              document.write(
+                `Кількість від’ємних чисел: ${OperationsOnArray.getCountOfNegativeNumbers(
+                  array
+                )}<br>`
+              )
+              document.write(
+                `Кількість входжень деякого числа: ${OperationsOnArray.getCountOfOccurrencesNumber(
+                  array
+                )}<br>`
+              )
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>
