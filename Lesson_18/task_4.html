@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 4</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 4</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Наперед задано у скрипті масив зі списком бажань. Після
+                завантаження сторінки випадковим чином вибираються 3 і
+                відображаються у окремих div (їх треба створити і додати на
+                сторінку)
+              </p>
+            </fieldset>
+            <div id="wishes"></div>
+
+            <script>
+              const wishes = [
+                "бажання_1",
+                "бажання_2",
+                "бажання_3",
+                "бажання_4",
+                "бажання_5",
+                "бажання_6",
+                "бажання_7",
+                "бажання_8",
+                "бажання_9",
+                "бажання_10",
+                "бажання_11",
+                "бажання_12",
+                "бажання_13",
+                "бажання_14",
+                "бажання_15",
+                "бажання_16",
+                "бажання_17",
+              ]
+
+              function printWishes(array) {
+                for (let i = 0; i < 3; i++) {
+                  let randomizerForWishes = Math.floor(
+                    Math.random() * array.length
+                  )
+                  let wishes = array[randomizerForWishes]
+                  const createDiv = document.createElement("div")
+                  createDiv.innerText = `${wishes}`
+                  document.querySelector("#wishes").prepend(createDiv)
+                }
+              }
+              // =============================================================================================
+              printWishes(wishes)
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 2</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">Розробити калькулятор</p>
+            </fieldset>
+
+            <label>
+              Сума в гривнях
+              <input
+                type="number"
+                id="grn"
+                placeholder="Введіть суму у гривнях"
+                value=""
+              />
+            </label>
+            <div>
+              <button>Конвертувати</button>
+            </div>
+
+            <div>Сума в євро = <span id="euro"> </span> €</div>
+            <div>Сума в доларах = <span id="dollar"> </span> $</div>
+            <script>
+              function convert() {
+                const grn = parseFloat(document.getElementById("grn").value)
+                const convertToDollar = grn / 36.56
+                const convertToEuro = grn / 39.59
+                document.getElementById("dollar").innerText =
+                  convertToDollar.toFixed(2)
+                document.getElementById("euro").innerText =
+                  convertToEuro.toFixed(2)
+              }
+              window.onload = function () {
+                document.querySelector("button").onclick = convert
+              }
+              // =============================================================================================
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

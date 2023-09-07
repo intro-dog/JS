@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">Розробити калькулятор</p>
+            </fieldset>
+            <label>
+              First number
+              <input
+                id="first"
+                type="number"
+                placeholder="Type first number here"
+                value=""
+              />
+            </label>
+            <label>
+              Second number
+              <input
+                id="second"
+                type="number"
+                placeholder="Type second number here"
+                value=""
+              />
+            </label>
+            <div>
+              <button id="plus">Додати</button>
+              <button id="minus">Відняти</button>
+              <button id="multiply">Помножити</button>
+              <button id="divide">Поділити</button>
+            </div>
+            <label>
+              Результат
+              <input id="result" type="number" placeholder="Result" />
+            </label>
+            <script>
+              function calculator(option) {
+                const firstNum = parseInt(
+                  document.getElementById("first").value
+                )
+
+                const secondNum = parseInt(
+                  document.getElementById("second").value
+                )
+
+                let result
+
+                switch (option) {
+                  case "plus":
+                    result = firstNum + secondNum
+                    break
+                  case "minus":
+                    result = firstNum - secondNum
+                    break
+                  case "multiply":
+                    result = firstNum * secondNum
+                    break
+                  case "divide":
+                    result = firstNum / secondNum
+                    break
+                  default:
+                    break
+                }
+                document.getElementById("result").value = result
+              }
+
+              window.onload = function () {
+                document.getElementById("plus").onclick = function () {
+                  calculator("plus")
+                }
+                document.getElementById("minus").onclick = function () {
+                  calculator("minus")
+                }
+                document.getElementById("multiply").onclick = function () {
+                  calculator("multiply")
+                }
+                document.getElementById("divide").onclick = function () {
+                  calculator("divide")
+                }
+              }
+              // =============================================================================================
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

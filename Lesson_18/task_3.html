@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 3</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Користувач задає рік народження. Визначити кількість років
+                користувача.
+              </p>
+            </fieldset>
+
+            <label>
+              Введіть будь ласка рік народження
+              <input
+                type="number"
+                id="year"
+                placeholder="Введіть будь ласка рік"
+                value=""
+              />
+            </label>
+            <div>
+              <button>Розрахувати</button>
+            </div>
+            <div>Вам <span id="ages"> </span> роки(ів)</div>
+            <script>
+              function calculateAges() {
+                const yearOfBirth = parseInt(
+                  document.getElementById("year").value
+                )
+                let calculateCurrentAges = 2023 - yearOfBirth
+                document.getElementById("ages").innerText = calculateCurrentAges
+              }
+              // =============================================================================================
+              window.onload = function () {
+                document.querySelector("button").onclick = calculateAges
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

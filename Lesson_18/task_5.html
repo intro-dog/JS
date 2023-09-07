@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 5</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Користувач задає кількість рядків і стовпців. Відобразити
+                таблицю, у клітинках якої знаходяться числа 1, 2, 3, …
+              </p>
+            </fieldset>
+
+            <script>
+              let rowNum = parseInt(prompt("Скільки рядків"))
+              let colNum = parseInt(prompt("Скільки стовбців"))
+              function createTable(rowNum, colNum) {
+                const tableEl = document.createElement("table")
+                let countFrom = 1
+                for (let i = 0; i < rowNum; i++) {
+                  const trEl = document.createElement("tr")
+                  for (let j = 0; j < colNum; j++) {
+                    const tdEl = document.createElement("td")
+                    tdEl.innerText = countFrom++
+                    trEl.append(tdEl)
+                  }
+                  tableEl.append(trEl)
+                }
+                document.body.append(tableEl)
+              }
+              createTable(rowNum, colNum)
+              // =============================================================================================
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>
