@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 4</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 4</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано 3 таблиці розмірності 3*3 з випадковими числами. Якщо
+                відбувається клік на якійсь із клітинок, то до відповідної
+                таблиці додається червона рамка (спробуйте додати можливість
+                відображення кількості кліків біля назви таблиці з використанням
+                відповідно доданого для цього атрибута).
+              </p>
+            </fieldset>
+            <div class="table-wrapper" style="display: flex; gap: 25px"></div>
+            <script>
+              class Table {
+                constructor(tableSize) {
+                  this.tableSize = tableSize
+                }
+
+                getRandomNumber(countOfNumbers) {
+                  return 1 + Math.floor(Math.random() * countOfNumbers)
+                }
+
+                createTable(numberOfRow, numberOfColumn, minNumber, maxNumber) {
+                  let wrapper = document.querySelector(".table-wrapper")
+
+                  let table = document.createElement("table")
+                  table.className = "table"
+
+                  let tableTr = document.createElement("tr")
+                  let tableClick = document.createElement("th")
+                  tableClick.innerText = "Click count = "
+                  tableClick.style.color = "bisque"
+
+                  let clickCount = document.createElement("span")
+
+                  clickCount.innerText = 0
+                  tableClick.append(clickCount)
+                  tableTr.append(tableClick)
+                  table.append(tableTr)
+                  let mainTable = document.createElement("td")
+                  for (let i = 0; i < numberOfRow; i++) {
+                    let row = document.createElement("tr")
+                    for (let j = 0; j < numberOfColumn; j++) {
+                      let column = document.createElement("th")
+                      column.innerText = this.getRandomNumber(50)
+                      column.style.color = "bisque"
+                      row.append(column)
+                    }
+                    mainTable.append(row)
+                  }
+
+                  table.append(mainTable)
+                  wrapper.append(table)
+                }
+
+                clickCountOnTable() {
+                  let table = document.querySelectorAll(".table")
+                  for (const iterator of table) {
+                    iterator.onclick = function () {
+                      iterator.style.border = "3px solid red"
+                      let count = parseInt(
+                        iterator.querySelector("span").innerText
+                      )
+                      ++count
+                      iterator.querySelector("span").innerText = count
+                    }
+                  }
+                }
+              }
+
+              // =============================================================================================
+
+              window.onload = function () {
+                let table = new Table(3)
+                table.createTable(3, 3, 1, 10)
+                table.createTable(3, 3, 1, 10)
+                table.createTable(3, 3, 1, 10)
+                table.clickCountOnTable()
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 5</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Відображаємо картки товарів, які користувач може вибирати.
+                Вибраний товар має зелену рамку (при кліку робити toogle з
+                класом вибраного елемента)
+              </p>
+            </fieldset>
+            <style>
+              .images-item {
+                border: 3px solid bisque;
+              }
+              .change {
+                border: 3px solid green;
+              }
+            </style>
+
+            <div
+              class="images"
+              style="display: flex; gap: 30px; flex-wrap: wrap"
+            >
+              <div class="images-item">
+                <img src="../img_task_7/1.png" alt="1" />
+                <p>Ціна курсу: 8000 грн</p>
+              </div>
+              <div class="images-item">
+                <img src="../img_task_7/2.png" alt="2" />
+                <p>Ціна курсу: 9000 грн</p>
+              </div>
+              <div class="images-item">
+                <img
+                  style="width: 225px; height: 225px"
+                  src="../img_task_7/3.png"
+                  alt="3"
+                />
+                <p>Ціна курсу: 10000 грн</p>
+              </div>
+              <div class="images-item">
+                <img
+                  style="width: 225px; height: 225px"
+                  src="../img_task_7/4.png"
+                  alt="4"
+                />
+                <p>Ціна курсу: 11000 грн</p>
+              </div>
+            </div>
+            <script>
+              let images = document.querySelectorAll(".images-item")
+
+              for (const iterator of images) {
+                iterator.onclick = function () {
+                  iterator.classList.toggle("change")
+                }
+              }
+              // =============================================================================================
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

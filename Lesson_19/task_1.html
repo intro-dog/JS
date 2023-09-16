@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано 10 рядків тексту «Hello!» у окремих div. При кліку на
+                якийсь із них усі наступні повинні бути зафарбовані у червоний
+                колір.
+              </p>
+            </fieldset>
+            <div>Hello</div>
+            <div>Hello</div>
+            <div>Hello</div>
+            <div>Hello</div>
+            <div>Hello</div>
+            <div>Hello</div>
+            <div>Hello</div>
+            <div>Hello</div>
+            <div>Hello</div>
+            <div>Hello</div>
+            <script>
+              let divList = document.querySelectorAll(`div`)
+              for (const div of divList) {
+                div.onclick = function () {
+                  let nextElement = this.nextElementSibling
+                  while (nextElement) {
+                    nextElement.style.color = `red`
+                    nextElement = nextElement.nextElementSibling
+                  }
+                }
+              }
+
+              // =============================================================================================
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

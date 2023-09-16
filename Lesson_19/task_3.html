@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 3</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано 5 елементів input. При введенні значення у якийсь із них
+                необхідно автоматично заповнювати інші (усі попередні у спадному
+                порядку(кожен попередній має значення на 1 менше за наступний),
+                усі наступні на 1 більше (кожен наступне на 1 більше за
+                попереднього)
+              </p>
+            </fieldset>
+
+            <button id="color-button" style="margin-bottom: 10px">
+              Натиснути
+            </button>
+            <div
+              class="random-list"
+              style="display: flex; gap: 50px; padding-left: 20px"
+            ></div>
+
+            <script>
+              class CreateList {
+                constructor(listCount) {
+                  this.listCount = listCount
+                }
+
+                getRandomNumber(minNumber, maxNumber) {
+                  return (
+                    minNumber +
+                    Math.floor(Math.random() * (maxNumber - minNumber + 1))
+                  )
+                }
+
+                render() {
+                  for (let i = 0; i < this.listCount; i++) {
+                    let numberedList = document.createElement("ol")
+                    let randomList = this.getRandomNumber(1, 10)
+                    for (let j = 0; j < randomList; j++) {
+                      let elementLi = document.createElement("li")
+                      let randomLiElement = this.getRandomNumber(1, 100)
+                      elementLi.innerText = randomLiElement
+                      numberedList.append(elementLi)
+                    }
+                    document.querySelector(".random-list").append(numberedList)
+
+                    let button = document.getElementById("color-button")
+                    button.onclick = this.changeListColor.bind(this)
+                  }
+                }
+                changeListColor() {
+                  let getList = document.querySelectorAll("ol")
+                  for (const ol of getList) {
+                    if (ol.children.length % 2 === 0) ol.style.color = "green"
+                    else ol.style.color = "red"
+                  }
+                }
+              }
+              // =============================================================================================
+
+              window.onload = function () {
+                new CreateList(5).render()
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

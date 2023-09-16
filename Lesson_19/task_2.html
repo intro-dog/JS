@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 2</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Дано 5 елементів input. При введенні значення у якийсь із них
+                необхідно автоматично заповнювати інші (усі попередні у спадному
+                порядку(кожен попередній має значення на 1 менше за наступний),
+                усі наступні на 1 більше (кожен наступне на 1 більше за
+                попереднього)
+              </p>
+            </fieldset>
+
+            <div
+              class="div"
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100px;
+              "
+            >
+              <input class="numbers" />
+              <input class="numbers" />
+              <input class="numbers" />
+              <input class="numbers" />
+              <input class="numbers" />
+            </div>
+
+            <script>
+              let inputs = document.getElementsByClassName("numbers")
+              for (const input of inputs) {
+                input.oninput = function () {
+                  let prevInput = this.previousElementSibling
+                  let currentValue = this.value
+                  while (prevInput) {
+                    prevInput.value = --currentValue
+                    prevInput = prevInput.previousElementSibling
+                  }
+                  let nextInput = this.nextElementSibling
+                  currentValue = this.value
+                  while (nextInput) {
+                    nextInput.value = ++currentValue
+                    nextInput = nextInput.nextElementSibling
+                  }
+                }
+              }
+
+              // =============================================================================================
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>
