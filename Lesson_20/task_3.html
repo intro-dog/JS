@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 3</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                На формі вводять 7 числових значень (вік, зріст, вага, заробітна
+                плата, стаж, номер відділу, порядковий номер). Додати подію
+                обробки події click на форму і якщо клік на внутрішньому input,
+                то автоматично замінювати значення його на 0. Використати
+                делегування
+              </p>
+            </fieldset>
+            <div class="form-wrapper">
+              <form action="#" class="form">
+                <div class="inputs">
+                  <label class="input">Вік</label>
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Вік"
+                    value=""
+                  />
+                </div>
+                <div class="inputs">
+                  <label class="input">Зріст</label>
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Зріст"
+                    value=""
+                  />
+                </div>
+                <div class="inputs">
+                  <label class="input">Вага</label>
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Вага"
+                    value=""
+                  />
+                </div>
+                <div class="inputs">
+                  <label class="input">Заробітна плата</label>
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Заробітна плата"
+                    value=""
+                  />
+                </div>
+                <div class="inputs">
+                  <label class="input">Стаж</label>
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Стаж"
+                    value=""
+                  />
+                </div>
+                <div class="inputs">
+                  <label class="input">Номер відділу</label>
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Номер відділу"
+                    value=""
+                  />
+                </div>
+                <div class="inputs">
+                  <label class="input">Порядковий номер</label>
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Порядковий номер"
+                    value=""
+                  />
+                </div>
+              </form>
+            </div>
+
+            <script>
+              function setValue(value, containerSelector) {
+                const wrapper = document.querySelector(containerSelector)
+
+                wrapper.onclick = (e) => {
+                  if (e.target.tagName === "INPUT") {
+                    e.target.setAttribute("value", value)
+                  }
+                }
+              }
+
+              window.onload = function () {
+                setValue(0, ".form")
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      body {
+        overflow: hidden;
+      }
+      img {
+        left: 0;
+        top: -50px;
+        width: 50px;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 2</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Байрактар. З верхньої частини екрану у випадковій позиції по
+                горизонталі з’являються танки, які їдуть вниз. При кліку на танк
+                він вибухає і зникає з екрану.
+              </p>
+            </fieldset>
+            <div class="stars-wrapper"></div>
+
+            <script>
+              // Я не зміг знайти іконку танку, якйи мені б сподобався, тому я вставив
+              // іконку JS. Думаю, вона не зламає загальну картину
+              class Image {
+                constructor(imgPath, interval) {
+                  this.imgPath = imgPath
+                  this.interval = interval
+                }
+                getRandomValue(min = 0, max = 100) {
+                  return min + Math.floor(Math.random() * (max - min + 1))
+                }
+
+                shootTank() {
+                  this.img.remove()
+                }
+
+                run(minTop = -50, maxScreen = 500) {
+                  let stepImg = minTop
+                  setInterval(() => {
+                    stepImg++
+                    this.img.style.top = stepImg + "px"
+                    if (stepImg > maxScreen) {
+                      stepImg = this.img.remove()
+                    }
+                  }, this.interval)
+                }
+                render(containerSelector) {
+                  const img = document.createElement("img")
+                  img.setAttribute("src", this.imgPath)
+                  this.img = img
+                  this.img.style.left = this.getRandomValue() + "%"
+                  this.img.onclick = this.shootTank.bind(this)
+
+                  this.run()
+                  if (containerSelector)
+                    document.querySelector(containerSelector).append(img)
+                }
+              }
+              window.onload = function () {
+                let intervalTanks = setInterval(() => {
+                  const tank = new Image("/img_task_7/3.png", 20)
+                  tank.render("body")
+                }, 2000)
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

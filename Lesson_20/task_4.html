@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 4</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      .buttons-btn {
+        cursor: pointer;
+        margin: 20px 10px 20px 0;
+        border: 1px solid bisque;
+        padding: 5px;
+        border-radius: 10px;
+      }
+      .input {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 4</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                На сторінці міститься певна кількість кнопок і інпутів.
+                Підраховувати загальну кількість кліків окремо на кнопках і
+                окремо на інпутах.
+              </p>
+            </fieldset>
+
+            <div class="inputs">
+              <label class="input">Input 1</label>
+              <input
+                class="input"
+                type="number"
+                placeholder="Input 1"
+                value=""
+              />
+            </div>
+            <div class="inputs">
+              <label class="input">Input 2</label>
+              <input
+                class="input"
+                type="number"
+                placeholder="Input 2"
+                value=""
+              />
+            </div>
+            <div class="inputs">
+              <label class="input">Input 3</label>
+              <input
+                class="input"
+                type="number"
+                placeholder="Input 3"
+                value=""
+              />
+            </div>
+            <div class="buttons">
+              <button type="button" class="buttons-btn">Клік</button>
+
+              <button type="button" class="buttons-btn">Клік</button>
+              <button type="button" class="buttons-btn">Клік</button>
+            </div>
+            <div class="inputs-count"></div>
+            <div class="buttons-count"></div>
+            <script>
+              function countClicks() {
+                const inputDiv = document.querySelector(".inputs-count")
+                const buttonDiv = document.querySelector(".buttons-count")
+                let counterInput = 0
+                let counterButton = 0
+
+                window.captureEvents(Event.CLICK)
+
+                window.onclick = (e) => {
+                  if (e.target.tagName === "INPUT") {
+                    counterInput++
+                    inputDiv.innerText = `Кількість кліків на Input: ${counterInput}`
+                  }
+
+                  if (e.target.tagName === "BUTTON") {
+                    counterButton++
+                    buttonDiv.innerText = `Кількість кліків на Button: ${counterButton}`
+                  }
+                }
+              }
+
+              window.onload = function () {
+                countClicks()
+              }
+
+              //   window.onload = function () {
+              //     let inputsCount = countClicks("buttons-count", "BUTTON")
+              //   }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

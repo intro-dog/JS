@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      body {
+        overflow: hidden;
+      }
+      .star {
+        border-radius: 50%;
+        background-color: bisque;
+        position: absolute;
+      }
+
+      .stars-wrapper {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__text">
+            <h1 class="text__homework">Задача 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="task">
+            <fieldset>
+              <legend>Умова задачі</legend>
+              <p class="task__description">
+                Сяючі зорі. Вказана кількість зірочок повинна з’являтися у
+                випадковій частині екрану. Кожна зірка (це екземпляр класу Star)
+                з певним кроком і інтервалом збільшується від мінімального до
+                максимального розміру. Як тільки досягнути максимального розміру
+                зірочка повинна з’являтися у іншій випадковій позиції.
+              </p>
+            </fieldset>
+            <div class="stars-wrapper"></div>
+
+            <script>
+              class Star {
+                constructor(numberOfStar) {
+                  this.numberOfStar = numberOfStar
+                }
+
+                getRandomValue(min = 1, max = 100) {
+                  return min + Math.floor(Math.random() * (max - min + 1))
+                }
+
+                createStars(step = 0.4, minSize = 3, maxSize = 9) {
+                  for (const star of this.starsWrapper.children) {
+                    let sizeOfStar = minSize
+                    setInterval(() => {
+                      sizeOfStar += step
+                      star.style.width = sizeOfStar + "px"
+                      star.style.height = sizeOfStar + "px"
+
+                      if (sizeOfStar > maxSize) {
+                        star.style.left = this.getRandomValue() + "%"
+                        star.style.top = this.getRandomValue() + "%"
+
+                        sizeOfStar = minSize
+                      }
+                    }, 100)
+                  }
+                }
+                render(containerSelector) {
+                  if (containerSelector) {
+                    this.starsWrapper = document.querySelector(".stars-wrapper")
+                  }
+                  for (let i = 0; i < this.numberOfStar; i++) {
+                    const starDiv = document.createElement("div")
+                    starDiv.className = "star"
+
+                    starDiv.style.left = this.getRandomValue() + "%"
+                    starDiv.style.top = this.getRandomValue() + "%"
+
+                    this.starsWrapper.append(starDiv)
+                  }
+
+                  this.createStars()
+                }
+              }
+
+              window.onload = function () {
+                const star = new Star(150)
+                star.render(".stars__wrapper")
+              }
+            </script>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </body>
+</html>
